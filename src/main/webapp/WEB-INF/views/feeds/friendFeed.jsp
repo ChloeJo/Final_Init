@@ -32,7 +32,6 @@
 }
 body{
 	background-color:#171C28;
-    color: white;
 }
 #wrapper {
    margin: auto;
@@ -247,29 +246,6 @@ html,body {
     background: transparent;
     color:#999;
 }
-/* .modal {
-          text-align: center;
-        } */
-/* @@media screen and (min-width: 768px) {
-            display: inline-block;
-            vertical-align: middle;
-            content: " ";
-            height: 100%;
-          }
-        } */
-/* .modal-dialog {
-     display: inline-block;
-     text-align: left;
-     vertical-align: middle;
-} */
-
-/* All Device */
-/* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
-
-/* Mobile Device */
-/* 768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. 미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다. */
-
-/* Tablet &amp; Desktop Device */
 @media all and (min-width:768px) {
    /*     사용자 해상도가 768px 이상일 때 이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
    #wrapper {
@@ -411,13 +387,18 @@ html,body {
                      for (var i = 0; i < list.length; i++) {
                          var feed = $("<div class='feed' feed_seq="+list[i].feed_seq+"></div>");
                          var profile = $("<div class='row profile'></div>");
-                         var Img = $("<div class='row profileImg'></div>") 
+                         var Img = $("<div class='row profileImg'></div>");
                          Img.append(profile_imgList[i]); 
                          profile.append(Img);
 
                          var nick = $("<div class='row profileNickname'></div>");
-                         nick.append(list[i].nickname);
+                         nick.append(list[i].nickname);                    
                          profile.append(nick);
+
+                         var Img = $("<div class='row profileTitle'></div>");
+                         Img.append(profile_imgList[i]); 
+                         profile.append(Img);
+                         
                          if(list[i].email != "${loginInfo.email}"){
                          var feedDeclaration = $("<div class='row profilefeedDeclaration'></div>");
                          feedDeclaration.attr("seq",list[i].feed_seq);

@@ -151,10 +151,12 @@ public class FriendController {
 		try {
 			List<MemberDTO> list = service.getFriendsListService(mDto.getEmail());
 			List<MemberDTO> waitlist = service.getRequestMemList(mDto.getEmail());
+			List<FriendDTO> frlist =service.getFriendsRelationService(mDto.getEmail());
 			System.out.println("waitlist size ="+waitlist.size());
 			
 			System.out.println(list.size());
-			
+			System.out.println(frlist);
+			System.out.println(frlist.size());
 			Gson g = new Gson();
 			
 			g.toJson(waitlist);
@@ -164,6 +166,7 @@ public class FriendController {
 		    }
 		    if(list.size() != 0) {
             obj.addProperty("list", g.toJson(list));
+            obj.addProperty("frlist", g.toJson(frlist));
 		    }
             System.out.println(obj.toString());
 			return obj.toString();
@@ -183,10 +186,11 @@ public class FriendController {
 		try {
 			List<MemberDTO> list = service.searchFriendsListService(mDto.getEmail(),search);
 			List<MemberDTO> waitlist = service.searchRequestMemList(mDto.getEmail(),search);
+			List<FriendDTO> frlist =service.searchFriendsRelationService(mDto.getEmail(), search);
 			System.out.println("waitlist size ="+waitlist.size());
 			
 			System.out.println(list.size());
-			
+			System.out.println(frlist.size());
 			Gson g = new Gson();
 			
 			g.toJson(waitlist);
@@ -196,6 +200,7 @@ public class FriendController {
 		    }
 		    if(list.size() != 0) {
             obj.addProperty("list", g.toJson(list));
+            obj.addProperty("frlist", g.toJson(frlist));
 		    }
             System.out.println(obj.toString());
 			return obj.toString();

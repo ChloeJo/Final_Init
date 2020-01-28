@@ -3,11 +3,6 @@
 <script>
 
 var temporaryReply;
-
-
-
-
-
 $('#exampleModal').on('shown.bs.modal', function (event) {
 	var seq = $(event.relatedTarget).data('id');
 	var feed_seq = $("#exampleModal").attr("feed_seq",seq);
