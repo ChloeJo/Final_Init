@@ -1083,7 +1083,7 @@ button.learn-more .button-text {
 
 <body>
     <jsp:include page="/resources/jsp/nav.jsp"/>
-    <!--<jsp:include page="/resources/jsp/alr.jsp"/>-->
+    <jsp:include page="/resources/jsp/alr.jsp"/>
     <jsp:include page="/resources/jsp/msg.jsp"/>
 	<div class="container-fluid">
 		<div class="profile">
