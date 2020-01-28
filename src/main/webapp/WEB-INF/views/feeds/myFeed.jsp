@@ -716,9 +716,9 @@ button.learn-more .button-text {
 }
 
 @supports (display: grid) {
-	#cbtnContainer {
-	width: 380px;
-	height: 40px;
+   #cbtnContainer {
+   width: 380px;
+   height: 40px;
     grid-area: main;
     align-self: center;
     justify-self: center;
@@ -727,7 +727,7 @@ button.learn-more .button-text {
 
 #deletePic{
 	width: 30px; height: 30px;
-    background: white;
+    background: white;;
     border: none;
 }
 #deletePicImg{
@@ -736,14 +736,30 @@ button.learn-more .button-text {
     width: 25px;
 }
 #profileImg{
-	
+	width:250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#adviseNickname, #adviseProfile-msg{
+	font-size: 12px;
+}
+#modalProfile{
+	width: 45%;
+    margin-top: 40px;
+    margin-left: 25%;
 }
 /* ----------------------------------------------------------------- 나유리 끝 -------- */
 </style>
 <script>
 	window.onload = function(){
 		
-	
+		if("${checkKey}"=='y'){
+			console.log("${checkKey}");
+			$("#friendsList").click();
+		}
+		
+		
 	var feedState = 0; // 0:PersonalFeed 1:ScrapFeed
 	var myMail = '${mvo.email }';
 	$(function() {
@@ -1296,6 +1312,9 @@ button.learn-more .button-text {
 			</div>
 		</div>
 	</div>
+	
+<!-- 	알림에서 친구 창 띄우기 -->
+	
 
 	
 	
@@ -1412,20 +1431,20 @@ button.learn-more .button-text {
                 <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
-                            <div class="modal-header header" style="color:white;">
+                            <div class="modal-header" style="color:white; background-color: #171C28;">
                                 <h5 class="modal-title" id="title">프로필 편집</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true" style="color:white;">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body" style="text-align:center; color:#0D4373;">
-                                <label style="margin:auto;">프로필 사진</label><br>
+<!--                                 <label style="margin:auto;">프로필 사진</label><br> -->
                                 <img src="" id="setProfile" name="profile_img" style="margin:auto; width:30%; border-radius:50%"><br><br>
                                 <input type="hidden" name="profile_img" id="hiddenImg">
                                 
                                 <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
                                 <input type="file" id="profileImg" name="profileImg"><br> 
-                                <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p>
+<!--                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p> -->
                                 <label>닉네임 : </label>
                                 <input type="text" id="inputNick" name="nickname" maxlength="20">
                                 <label class="adviseIn" id="adviseInNickname" hidden></label><br>
@@ -1438,16 +1457,16 @@ button.learn-more .button-text {
                             <div class="modal-footer">
                             <div id="cbtnContainer">
                                 <button type="button" class="learn-more" id="changeProfileBtn" style="color:#0D4373; margin-right:5%;">
-	                                <span class="circles" aria-hidden="true">
-								      <span class="icon arrow"></span>
-								    </span>
-								    <span class="button-text">수정</span><br>
+                                   <span class="circles" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">수정</span><br>
                                 </button>
                                 <button type="button" class="learn-more" id="cancelBtn"  style="color:#0D4373; margin-right:5%;">
-                                	<span class="circles" aria-hidden="true">
-								      <span class="icon arrow"></span>
-								    </span>
-								    <span class="button-text">취소</span><br>
+                                   <span class="circles" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">취소</span><br>
                                 </button>
                                 </div>
                             </div>
@@ -1457,7 +1476,7 @@ button.learn-more .button-text {
             </div>
         </div>
     </form>
-<!-- 내 프로필 수정 끝	 -->
+<!-- 내 프로필 수정 끝    -->
 
 	
 	<script>	

@@ -33,7 +33,7 @@ public class FeedController {
 	private HttpSession session;
 
 	@RequestMapping("/myFeed")
-	public String myFeed(String email, Model model) {
+	public String myFeed(String email, Model model, String checkKey) {
 		System.out.println("myFeed 도착");
 		System.out.println("email : " + email);
 		int ipage = 1;
@@ -75,6 +75,7 @@ public class FeedController {
 			}
 			model.addAttribute("list", list);
 			model.addAttribute("cover", cover);
+			model.addAttribute("checkKey", checkKey);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
