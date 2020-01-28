@@ -1179,6 +1179,7 @@ button.learn-more .button-text {
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="detailView_header">
+	      
 	         <span class="writerProfile"><img class="userProfileImg" src="" alt=""></span>
 	         <span class="writer"></span>
 	        <h5 class="modal-title" id="exampleModalLabel" style=""></h5>
