@@ -11,15 +11,20 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 *{
 	font-family: 'Noto Sans KR', sans-serif;
-	
+	font-size: 30px;
+	font-weight: bold;
 }
+div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
 </style>
 </head>
 <body>
-ErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorError
-ErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorError
-ErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorError
-ErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorError
-ErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorErrorError
+<div id="pageDiv">
+	<p id="pageId">Page Not Found</p>
+</div>
 </body>
 </html>
