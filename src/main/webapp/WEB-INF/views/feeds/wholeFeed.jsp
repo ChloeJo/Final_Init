@@ -58,9 +58,7 @@ body{
 }
 
 #contents {
-/*    width:60vw; */
    margin:0px;
-/*     margin: auto; */
     text-align: center;
     color:white;
     font-size:20px;
@@ -71,6 +69,9 @@ body{
 	color:black;
 	margin-right:10px;
 	font-size:15px;
+}
+.writer{
+    margin: 25px 0px 25px 20px;
 }
 .modifyA:hover, .deleteA:hover{
 	font-weight:bold;
@@ -166,6 +167,7 @@ div.cover {
     max-width: 150px;
     max-height: 150px;
     overflow-y: hidden;
+    white-space: normal;
     color:black;
     font-size:17px;
     font-weight:600;
@@ -305,66 +307,6 @@ div.cover {
 #reportBtn {
    background-color: transparent;
    border: none;
-}
-/*This is coded CSS rainbow*/
-#changeProfile:hover {
-   -webkit-animation: rainbow 1s infinite;
-   -ms-animation: rainbow 1s infinite;
-   -o-animation: rainbow 1s infinite;
-   animation: rainbow 1s infinite;
-}
-
-@-webkit-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@-ms-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@-o-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
 }
 .profileName {
    text-align: center;
@@ -768,8 +710,9 @@ function getList(page){
 	    <div class="modal-content">
 	      <div class="modal-header" style="width:99.9%;">
 	         <span class="writerProfile"><img class="userProfileImg" src="${writerProfile.profile_img }" alt=""></span>
+	         <span class="writer"></span>
 	         <h5 class="modal-title" id="exampleModalLabel" style="font-size:30px;font-weight:bold;"></h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin:0px">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
