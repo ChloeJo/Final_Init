@@ -252,7 +252,7 @@
     border-radius: 13px;
     border: 1px solid white;
     background-color: white;
-    font-size: 21px;
+    font-size: 16px;
     font-family: 'Do Hyeon', sans-serif;
     background: transparent;
     color: white;
