@@ -897,7 +897,8 @@
 							email.value = data.user_id;
 							emailOverlapCheck();
 							if(data.kakaoProfile == "none"){
-								setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
+								$("#tab5-1_setProfile").attr("src", "${pageContext.request.contextPath}/resources/images/default_profile_img.png");
+// 								setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
 								hiddenProfileImg.value = "resources/images/default_profile_img.png";
 							}else{
 								console.log("카톡 프로필 exist");
@@ -922,8 +923,9 @@
                     if (input.files && input.files[0]) {
                         var reader = new FileReader();
                         reader.onload = function (e) {
-                            console.log("프로필 사진명 : " + profileImg.value);  // 파일명                
-                            setProfile.src = e.target.result;
+                            console.log("프로필 사진명 : " + profileImg.value);  // 파일명     
+                            $("#tab5-1_setProfile").attr("src", e.target.result);
+//                             setProfile.src = e.target.result;
                         }
                         reader.readAsDataURL(input.files[0]);
                     }
@@ -934,7 +936,8 @@
                 });
         		
         		doc.getElementById("tab5-2_deleteProfile").addEventListener("click", function(){
-        			setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
+        			$("#tab5-1_setProfile").attr("src", "${pageContext.request.contextPath}/resources/images/default_profile_img.png");
+//         			setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
         			hiddenProfileImg.value = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
         		});
         		//프로필 사진 uploda 이벤트 end
