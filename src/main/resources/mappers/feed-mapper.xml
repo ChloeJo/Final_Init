@@ -195,7 +195,7 @@
 	from tb_feed p left join tb_friend r on p.email = r.my_id
 	where 
         (r.fr_id = #{email} and 
-        p.relation >= r.relation and 
+        r.relation >= p.relation and 
         p.email not in (select to_id from tb_block where from_id = #{email}) and 
         p.email not in (select from_id from tb_block where to_id = #{email}))
         
