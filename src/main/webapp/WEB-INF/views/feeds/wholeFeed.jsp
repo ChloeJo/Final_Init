@@ -26,6 +26,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+	
+}
 #exampleModal{
 	width:1200px;
 	margin:auto;
@@ -762,9 +767,8 @@ function getList(page){
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header" style="width:99.9%;">
-	         <span class="writerProfile"><img class="userProfileImg" src="${loginInfo.profile_img }" alt=""></span>
+	         <span class="writerProfile"><img class="userProfileImg" src="${writerProfile.profile_img }" alt=""></span>
 	         <h5 class="modal-title" id="exampleModalLabel" style="font-size:30px;font-weight:bold;"></h5>
-
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -775,9 +779,9 @@ function getList(page){
 	      	
             <div class="title">
                 <div class="reply">
-                     <div class="writerInfo">
-                          <span class="writerProfile"><img class="userProfileImg" src="${loginInfo.profile_img }" alt=""></span>
-                           <span class="writerProfileID">asdsadas</span>
+               		<div class="writerInfo">
+                    		<span class="writerProfile"><img class="userProfileImg" src="${writerProfile.profile_img }" alt=""></span>
+                     		<span class="writerProfileID">asdsadas</span>
                     </div>                     
                 </div>
             </div>
