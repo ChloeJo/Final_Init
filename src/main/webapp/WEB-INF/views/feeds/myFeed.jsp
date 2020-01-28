@@ -506,8 +506,10 @@ margin:auto;
 
 /* 메뉴바 */
 .menubar{
+
     text-align:center;
     max-width: 600px;
+
     min-width: 464px;
     margin:  auto;
     border:2px solid #67c5ff;
@@ -515,11 +517,18 @@ margin:auto;
     
 }
 .menubar>button{
-	border:none; 
-	background-color:transparent;
-    font-size: 20px;
-    color:white;
     width: 32.7%;
+    height: 38px;
+    font-size: 20px;
+    background: transparent;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 5px;
+    transition: .4s;
+}
+.menubar>button:hover{
+    background: #67c5ff;
+    color: white;
 }
 
 /* 버튼호버 */
@@ -777,6 +786,68 @@ button.learn-more .button-text {
 	width: 45%;
     margin-top: 40px;
     margin-left: 25%;
+}
+#inputNick, #inputProfile_msg {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  max-width: 400px;
+  min-width: 200px;
+  margin: auto;
+  border-radius: 2px;
+        padding: 10px 10px 10px 10px;
+  background: rgba(252, 252, 252, 0.8);
+}
+.webflow-style-input:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+    color: #4b4b4b;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    vertical-align: middle;
+}
+.webflow-style-input input::-webkit-input-placeholder {
+  color: #7881A1;
+}
+
+.webflow-style-input button {
+  color: #7881A1;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color 0.25s;
+}
+.webflow-style-input button:hover {
+  color: #BFD2FF;
 }
 /* ----------------------------------------------------------------- 나유리 끝 -------- */
 </style>
@@ -1045,7 +1116,7 @@ button.learn-more .button-text {
 
 <body>
     <jsp:include page="/resources/jsp/nav.jsp"/>
-     <jsp:include page="/resources/jsp/alr.jsp"/>
+    <jsp:include page="/resources/jsp/alr.jsp"/>
     <jsp:include page="/resources/jsp/msg.jsp"/>
 	<div class="container-fluid">
 		<div class="profile">
@@ -1264,7 +1335,7 @@ button.learn-more .button-text {
 			<div class="modal-content" style="background-color:#171C28; color:gainsboro;">
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin:0px;">
 					<span aria-hidden="true">×</span>
 					</button>
 				</div>
@@ -1292,7 +1363,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 
@@ -1321,7 +1392,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 
@@ -1355,7 +1426,7 @@ button.learn-more .button-text {
 				<h4 class="modal-title" id="modalModify" style="color: white;">My
 					Information</h4>
 				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
+					aria-label="Close" style="margin:0px;">
 					<span aria-hidden="true" style="color: white;">×</span>
 				</button>
 			</div>
@@ -1460,24 +1531,25 @@ button.learn-more .button-text {
                         <div class="modal-content">
                             <div class="modal-header" style="color:white; background-color: #171C28;">
                                 <h5 class="modal-title" id="title">프로필 편집</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin:0px;">
                                     <span aria-hidden="true" style="color:white;">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body" style="text-align:center; color:#0D4373;">
 <!--                                 <label style="margin:auto;">프로필 사진</label><br> -->
-                                <img src="" id="setProfile" name="profile_img" style="margin:auto; width:30%; border-radius:50%"><br><br>
+                                <img src="" id="setProfile" name="profile_img" style="margin:auto; width:300px;height:300px; border-radius:100%"><br><br>
                                 <input type="hidden" name="profile_img" id="hiddenImg">
                                 
                                 <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
                                 <input type="file" id="profileImg" name="profileImg"><br> 
 <!--                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p> -->
-                                <label>닉네임 : </label>
-                                <input type="text" id="inputNick" name="nickname" maxlength="20">
+<!--                                 <label>닉네임 : </label> -->
+								<div class="webflow-style-input">
+                                <input type="text" id="inputNick" name="nickname" maxlength="20"></div>
                                 <label class="adviseIn" id="adviseInNickname" hidden></label><br>
                                 <p class="adviseOut" id="adviseNickname" readonly>*4~20자 영문 대 소문자, 숫자, 특수문자(_)만 사용 가능합니다.</p>
-                                <label>상태 매세지 : </label>
-                                <input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200">
+<!--                                 <label>상태 메시지 : </label> -->
+                                <div class="webflow-style-input"><input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200"></div>
                                 <label class="adviseIn" id="adviseInProfile-msg" hidden></label><br>
                                 <p class="adviseOut" id="adviseProfile-msg" readonly>*200자 이내로 입력 가능합니다.</p>
                             </div>
@@ -1954,7 +2026,8 @@ button.learn-more .button-text {
 			                	var reader = new FileReader();                
 			                	reader.onload = function (e) {
 				                    console.log(profile_img.value);  // 파일명                
-				                    setProfile.src = e.target.result; 
+				                    setProfile.src = e.target.result;
+				                    $("#hiddenImg").attr("value", dto.profile_img);
 			               		}                
 			                reader.readAsDataURL(input.files[0]);
 			            }
@@ -1966,6 +2039,7 @@ button.learn-more .button-text {
 
 			        deletePic.addEventListener("click", function(){
 			            setProfile.src = "/resources/images/default_profile_img.png";
+			            $("#hiddenImg").attr("value", "/resources/images/default_profile_img.png");
 			        });     
 
 			        nickname.addEventListener("keyup", function(){
@@ -2030,8 +2104,8 @@ button.learn-more .button-text {
 			        //submit 직전 유효성 검사
 
 			        $("#cancelBtn").on("click", function() {
-							$("#modalProfile").modal("hide");
-						});
+						$("#modalProfile").modal("hide");
+					});
 				
 			}).fail(function(a,b,c){
 				console.log(a);

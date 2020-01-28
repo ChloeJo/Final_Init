@@ -66,7 +66,7 @@
               </div>
               <div class="col-10">
                 <h5 class="feature-title">소통의 공간</h5>
-                <p class="grey-text">너와 나의 연결고리 이건 우리 안의 소리</p>
+                <p class="grey-text">너와 내가 함께 머무는 공간</p>
               </div>
             </div>
             <!--/First row-->
@@ -80,8 +80,7 @@
               </div>
               <div class="col-10">
                 <h5 class="feature-title">나만의 공간</h5>
-                <p class="grey-text">그 누구도 날 방해할 수 없지 나의 privacy 
-                </p>
+                <p class="grey-text">누구도 방해할 수 없는 내 공간</p>
               </div>
             </div>
             <!--/Second row-->
@@ -95,7 +94,7 @@
               </div>
               <div class="col-10">
                 <h5 class="feature-title">자유의 공간</h5>
-                <p class="grey-text">I'm free. 도비는 이제 자유의 몸이에요. </p>
+                <p class="grey-text">세상의 시선으로부터 자유로운 공간</p>
               </div>
             </div>
             <!--/Third row-->
@@ -145,7 +144,7 @@
               </div>
               <div class="col-10 mb-2">
                 <h5 class="feature-title font-bold mb-1">김세원</h5>
-                <p class="grey-text mt-2">핸드북 커뮤니티 상주 코비(고속선) 골수팬 담당 후론트개발자 
+                <p class="grey-text mt-2">그대의 열정은 언제나 골대를 향하지
                 </p>
               </div>
             </div>
@@ -161,8 +160,7 @@
               </div>
               <div class="col-10 mb-2">
                 <h5 class="feature-title font-bold mb-1">나유리</h5>
-                <p class="grey-text mt-2">어둠속에 니 모습 보다가 나도 몰래 눈물이 흘렀어~ 소리 없이 다 해 ~ 
-                </p>
+                <p class="grey-text mt-2">나의 시작엔 언제나 끝이 존재하기 마련</p>
               </div>
             </div>
             <!--/Grid row-->
@@ -177,7 +175,7 @@
               </div>
               <div class="col-10 mb-2">
                 <h5 class="feature-title font-bold mb-1">이예린</h5>
-                <p class="grey-text mt-2">방구대장 트름대장 북북이 트북이</p>
+                <p class="grey-text mt-2">내가 가는 곳에 못푸는 문제는 없지</p>
               </div>
             </div>
             <!--/Grid row-->
@@ -192,7 +190,7 @@
               </div>
               <div class="col-10 mb-2">
                 <h5 class="feature-title font-bold mb-1">전유진</h5>
-                <p class="grey-text mt-2">매니저에 상습 고액 사기 피해 이력 보유 KH 유진박</p>
+                <p class="grey-text mt-2">노는 것만 잘해? 미안한데 코딩도 잘해.</p>
               </div>
             </div>
             <!--/Grid row-->
@@ -207,8 +205,7 @@
               </div>
               <div class="col-10 mb-2">
                 <h5 class="feature-title font-bold mb-1">조은비</h5>
-                <p class="grey-text mt-2">혼잣말 하는 것 같지만 사실 혼잣말이 아닌 대화중인 KH 정보교육원 종로지원 상주도우미
-                </p>
+                <p class="grey-text mt-2">아무리 높은 산도 오르지 못할 산은 없어</p>
               </div>
             </div>
             <!--/Grid row-->
@@ -273,7 +270,7 @@
       <!-- Grid column -->
       <div class="col-md-7 col-lg-8">
         <!--Copyright-->
-        <p class="text-center text-md-left">© 2020 Copyright:
+        <p class="text-center text-md-left">© 2020 Copyright 
           <a href="https://localhost/main">
             <strong> Init.com</strong>
           </a>
