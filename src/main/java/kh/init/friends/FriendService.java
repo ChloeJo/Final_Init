@@ -96,6 +96,19 @@ public class FriendService {
 		}
 		
 			return list;
+			
+		
+		
+	}
+	// 친구 관계 리스트 가져오기
+	public List<FriendDTO> getFriendsRelationService(String id) throws Exception{
+		
+		List<FriendDTO> flist = dao.getFriendsList(id);
+		System.out.println("flist : " + flist.size());
+		
+		
+			return flist;
+			
 		
 		
 	}
@@ -112,6 +125,19 @@ public class FriendService {
 		}
 		
 			return list;
+		
+		
+	}
+	//검색된 친구 관계 리스트 가져오기
+	public List<FriendDTO> searchFriendsRelationService(String email,String search) throws Exception{
+		
+		System.out.println("넘어온 이메일은 "+email);
+		List<FriendDTO> flist = dao.getFriendsList(email,search);
+		System.out.println("검색 친구리스트 사이즈: "+flist.size());
+		
+	
+		
+			return flist;
 		
 		
 	}
