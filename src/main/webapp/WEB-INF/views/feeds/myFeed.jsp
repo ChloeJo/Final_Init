@@ -172,9 +172,10 @@
 
 .container-fluid {
 	position: relative;
-	top: 62px;
+	top: 5px;
 	max-width: 935px;
 	padding: 60px 20px 0;
+	border:2px solid #67c5ff; 
 }
 #carouselExampleIndicators{
    width:100%;
@@ -196,6 +197,14 @@
 .wrapper {
 	max-width: 700px;
     margin: 30px auto 50px;
+    
+    border-radius:0.5%;
+    padding:3%;
+    
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+    
 }
 #myFeed{
 	color:white;
@@ -246,8 +255,8 @@
 }
 
 .profileButton{
-    width: 90px;
-    height: 38px;
+    width: 125px;
+    height: 64px;
     background-color: white;
     font-size: 16px;
     font-family: 'Do Hyeon', sans-serif;
@@ -326,7 +335,10 @@
         padding: 16px;
         overflow-y: scroll;
 }
-
+.frInfo{
+text-align:center;
+margin:auto;
+}
 .reply::-webkit-scrollbar {
         width: 0 !important
 }
@@ -483,6 +495,10 @@
     border-radius: 8px;
     max-height:70px;
 }
+.frListBody::-webkit-scrollbar{
+   width: 0 !important
+   
+}
 
 .myProfile{	
     margin: 5px 10px;
@@ -490,9 +506,13 @@
 
 /* 메뉴바 */
 .menubar{
+    text-align:center;
     max-width: 600px;
     min-width: 464px;
-    margin: 20px auto;
+    margin:  auto;
+    border:2px solid #67c5ff;
+    border-radius:10%;
+    
 }
 .menubar>button{
 	border:none; 
@@ -519,6 +539,7 @@
   background-size: 300% 300%;
   border-radius: 160px;
 }
+
 
 
 @-webkit-keyframes animatedgradient {
@@ -549,15 +570,18 @@
 .report{	
     position: absolute;
     right: 110px; 	
-    top: -50px;
+    top: -30px;
+}
+.close{
+	margin:0px;
 }
 .blockFr{	
     width: 30px;
     height: 30px;
 }
 #friendListModal{
-  margin:auto;
-  text-align:center;
+  
+ 
   width:50%;
 }
 .writer{
@@ -1021,7 +1045,7 @@ button.learn-more .button-text {
 
 <body>
     <jsp:include page="/resources/jsp/nav.jsp"/>
-    <!--<jsp:include page="/resources/jsp/alr.jsp"/>-->
+     <jsp:include page="/resources/jsp/alr.jsp"/>
     <jsp:include page="/resources/jsp/msg.jsp"/>
 	<div class="container-fluid">
 		<div class="profile">
@@ -1039,13 +1063,13 @@ button.learn-more .button-text {
 					<div class="profileLayout">					
 						<div class="profileLayoutLeft">
 						<c:if test="${frResult == null || frResult == 0  }">
-							<button class="profileButton btn-lg" id="openModalBtn">친구목록</button>
+							<button class="profileButton btn-lg" id="openModalBtn">친구요청</button>
 						</c:if>			
 							<c:if test="${frResult == 1 }">
-						<button class="profileButton btn-lg" id="ingReq">＋</button>
+						<button class="profileButton btn-lg" id="ingReq">요청 진행중</button>
 						</c:if>	
 						<c:if test="${frResult == 2  }">
-							<button class="profileButton btn-lg" id="openFrModal" >친구상태</button>
+							<button class="profileButton btn-lg" id="openFrModal" >친구</button>
 						</c:if>	
 						
 						</div>
@@ -1104,16 +1128,16 @@ button.learn-more .button-text {
 				<br>
 				</div>
 				<div class="menubar">
-		<button type="button" id="personalFeed">Personal feed</button>
-		<button type="button" id="registerFeed">게시물 추가</button>
-		<button type="button" id="scrapFeed">scrap feed</button>			
+		<button type="button" class="profileButton" id="personalFeed" style="width:30%; height:100%;">Personal feed</button>
+		<button type="button" class="profileButton" id="registerFeed" style="width:30%; height:100%;">게시물 추가</button>
+		<button type="button" class="profileButton" id="scrapFeed" style="width:30%; height:100%;">scrap feed</button>			
 		</div>
 				</c:otherwise>
 
 			</c:choose>
 		</div>
 					
-         <div class="wrapper">			
+         <div class="wrapper" >			
 			<div id="myFeed">
          <c:choose>
             <c:when test="${fn:length(list) <1}">
@@ -1166,27 +1190,27 @@ button.learn-more .button-text {
 
 	<!-- 친구 목록 모달 영역 -->
 	<div id="friendListModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel2"
-		style="margin-top:5%; margin-left:32%;">
-		<div class="modal-dialog" role="document" style="background-color:#171C28;">
-			<div class="modal-content" style="background-color:#171C28;">
+		style="margin-top:5%; margin-left:0%;">
+		<div class="modal-dialog" role="document" >
+			<div class="modal-content"  style="border:1px;">
 				<div class="modal-header" style="background-color:#171C28;">
 					<h4 class="modal-title" id="myModalLabel2" style="color:gainsboro;">My Friendlist</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true" style="color:white;">×</span>
 					</button>
 
 				</div>
-				<div style="text-align: center; background-color:#171C28; color:gainsboro; margin:20px;">
+				<div style="text-align: center;  color:gainsboro; margin:20px;">
 					
 					친구 검색  :  <input type=text placeholder=이름,닉네임 id="searchFriendsList"
 						value="" style="background-color:gainsboro;">
 						<br>
 				</div>
-				<div class="frListBody">
+				<div class="frListBody" style="overflow-y:scroll; height:400px;">
 				
 				</div>
-				<div class="modal-footer" style="background-color:#171C28;">
+				<div class="modal-footer" >
 
 					<button type="button" class="closebtnFL" id="closefriendList" onclick="closeModal();"style="background-color:gainsboro;">확인</button>
 
@@ -1326,8 +1350,8 @@ button.learn-more .button-text {
 	<div id="modalModifyInfo" class="modal fade" role="dialog" tabindex="-1"
 	aria-labelledby="modalModify" style="margin-top: 45px;margin-left:33%; width:35%;">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content" style="background-color:#171C28;">
-			<div class="modal-header">
+		<div class="modal-content" >
+			<div class="modal-header" style="background-color:#171C28;">
 				<h4 class="modal-title" id="modalModify" style="color: white;">My
 					Information</h4>
 				<button type="button" class="close" data-dismiss="modal"
@@ -1341,10 +1365,8 @@ button.learn-more .button-text {
 					method="post" id="signUpForm">
 					<div class="body" style="text-align: center; color: white;">
 						<!-- 이메일 -->
-						<label></label>
-						<div class="userInput" id="email" name="email"
-							style="font-family: fantasy; font-size: 30px;">${loginInfo.email}</div>
-						<br> <label>비밀번호</label><br>
+						
+						<br> <br>
 						<div id="changePwDiv" style="display: none;">
 							<!-- 현재 비밀번호 -->
 							<label>현재 비밀번호</label> <input type="password" class="userInput_pw"
@@ -1362,6 +1384,7 @@ button.learn-more .button-text {
 							<p class="hiddenResp" id="hiddenRespPw" style="display: none;"></p>
 							<br>
 						</div>
+						<div>비밀 번호</div>
 						<button type="button" id="changePw">비밀번호 변경</button>
 						<br>
 						<button type="button" id="cancelChangePw" style="display: none;">이전</button>
@@ -1430,7 +1453,7 @@ button.learn-more .button-text {
 
 <!-- 내 프로필 수정 시작 -->
 <form action="${pageContext.request.contextPath}/member/changeProfile" method="post" enctype="multipart/form-data" id="profileFrm">
-        <div class="container">
+        <div class="container" >
             <div class="profileContainer">
                 <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">

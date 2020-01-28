@@ -395,9 +395,6 @@ html,body {
                          nick.append(list[i].nickname);                    
                          profile.append(nick);
 
-                         var Img = $("<div class='row profileTitle'></div>");
-                         Img.append(profile_imgList[i]); 
-                         profile.append(Img);
                          
                          if(list[i].email != "${loginInfo.email}"){
                          var feedDeclaration = $("<div class='row profilefeedDeclaration'></div>");

@@ -37,8 +37,8 @@
 	<div id="friendListModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel2"
 		style="margin-top:5%; margin-left:32%;">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="background-color:#171C28;">
-				<div class="modal-header">
+			<div class="modal-content" ">
+				<div class="modal-header" style="background-color:#171C28;">
 					<h4 class="modal-title" id="myModalLabel2" style="color:gainsboro;">친구 목록</h4>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
@@ -46,7 +46,7 @@
 					</button>
 
 				</div>
-				<div style="text-align: center; background-color:#171C28; color:gainsboro; margin:20px;">
+				<div style="text-align: center;  color:gainsboro; margin:20px;">
 					친구 검색 : <input type=text placeholder=이름,닉네임 id="searchFriends"
 						value="" style="background-color:gainsboro;">
 				</div>

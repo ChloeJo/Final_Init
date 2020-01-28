@@ -50,6 +50,7 @@ body{
    margin: auto;
    padding: 60px 20px 0;
    min-width:540px;
+   border:2px wave gainsboro;
 }
 
 #search {
