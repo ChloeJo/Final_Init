@@ -25,8 +25,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
 <style>
-/* 	폰트 */
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR|Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+	
+}
 	#exampleModal{
 	width:1200px;
 	margin:auto;
@@ -41,6 +44,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
     max-width: 150px;
     max-height: 150px;
     color:black;
@@ -205,9 +210,6 @@
 	position: relative;
 }
 
-.profileMessageLayout {
-	position: relative;
-}
 
 
 
@@ -244,11 +246,16 @@
 }
 
 .profileButton{
-	width: 125px;
-	height: 125px;
-	border-radius: 80px;
-	border: 1px solid black;
-	background-color: white;
+    width: 90px;
+    height: 38px;
+    background-color: white;
+    font-size: 16px;
+    font-family: 'Do Hyeon', sans-serif;
+    background: transparent;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 3px;
+    transition: .4s;
 }
 
 .btn btn-primary btn-lg {
@@ -260,89 +267,33 @@
 }
 
 #changeProfile {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: -10px;
-	border-radius: 20px;
-	padding: 5px 20px;
-	font-weight: bold;
-	font-size: 13px;
-	background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: white;
 }
 
 #reportBtn {
 	
 	border: none;
 }
-/*This is coded CSS rainbow*/
-#changeProfile:hover {
-	-webkit-animation: rainbow 1s infinite;
-	-ms-animation: rainbow 1s infinite;
-	-o-animation: rainbow 1s infinite;
-	animation: rainbow 1s infinite;
-}
-
-@-webkit-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@-ms-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@-o-keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
-@keyframes rainbow {
-0% {color: #ff0000;}
-10% {color: #ff8000;}
-20% {color: #ffff00;}
-30% {color: #80ff00;}
-40% {color: #00ff00;}
-50% {color: #00ff80;}
-60% {color: #00ffff;}
-70% {color: #0080ff;}
-80% {color: #0000ff;}
-90% {color: #8000ff;}
-100% {color: #ff0080;}
-}
 .profileName {
 	text-align: center;
 	font-size: 70px;
 	font-weight: bold;
+	color:#ffdeb0;
 }
 
+
 .profileMessageLayout {
-	margin-bottom: 50px;
+	position: relative;
+	color:white;
+    margin: 40px 0px 10px 0px;
 }
 
 .profileMessage {
@@ -351,6 +302,7 @@
     margin: auto;
     font-size: 15px;
 	font-family: 'Noto Serif KR', serif;
+	color:white;
 }
 
 .modal-dialog {
@@ -442,7 +394,7 @@
     width: 50%;
     height:10%;
 }
-.modal-title{
+.myNickname{
 	line-height: 50px;
 }
 #writeReply{	
@@ -454,7 +406,12 @@
     border-radius: 16px;
     border: 1px solid rgb(239, 239, 239);
     padding: 0px 10px;
-    
+    max-height:400px;
+    overflow-y:scroll;
+	white-space:normal;
+}
+#writeReply::-webkit-scrollbar{
+        width: 0 !important;	
 }
 .replyBtns{
 	margin:20px 20px;
@@ -509,9 +466,6 @@
     display: flex;
     padding: 1rem 1rem;	
 }
-.modal-title{
-	margin:auto;
-}
 .replyBtns>button, .replyBtn{
 	background: 0 0;
     border: 0;
@@ -527,6 +481,7 @@
     border: 1px solid #999;
     padding: 5px 7px;
     border-radius: 8px;
+    max-height:70px;
 }
 
 .myProfile{	
@@ -535,9 +490,9 @@
 
 /* 메뉴바 */
 .menubar{
-    max-width: 600px;;
+    max-width: 600px;
     min-width: 464px;
-    margin: auto;
+    margin: 20px auto;
 }
 .menubar>button{
 	border:none; 
@@ -548,17 +503,10 @@
 }
 
 /* 버튼호버 */
-.profileButton:hover, .profileImageBox:hover{
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  --borderWidth: 3px;
-  position: relative;
+.profileImageBox:hover{
+    --borderWidth: 5px;
 }
-.profileButton:after, .profileImageBox:after {  
+.profileImageBox:after {  
   content: '';
   position: absolute;
   top: calc(-1 * var(--borderWidth));
@@ -598,17 +546,6 @@
 	}
 }
 
-.clock {
-	position: absolute; 
-    top: -80px;
-	left: 50%; 	
-    color: #17D4FE;
-    font-size: 20px;
-    font-family: Orbitron;
-    letter-spacing: 7px;
-    transition-duration: 0.5s;
-    transform: translateX(-50%);
-}
 .report{	
     position: absolute;
     right: 110px; 	
@@ -623,9 +560,11 @@
   text-align:center;
   width:50%;
 }
-.frInfo{
-style=background-color:#171C28;
-margin:5px;
+.writer{
+    margin: 25px 0px 25px 20px;
+}
+.modal-title{
+	margin:auto;
 }
 /* 호버 */
 /* All Device */
@@ -645,8 +584,9 @@ margin:5px;
 @media all and (max-width:768px) {
 	/*     사용자 해상도가 768px 이하일 때 이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
 	.profileButton {
-    	width: 70px;
-   		height: 70px;
+   		width: 65px;
+    	height: 30px;
+   		font-size: 11px;
 	}
 /* 	.row{ */
 /* 		margin:0px; */
@@ -777,9 +717,9 @@ button.learn-more .button-text {
 }
 
 @supports (display: grid) {
-	#cbtnContainer {
-	width: 380px;
-	height: 40px;
+   #cbtnContainer {
+   width: 380px;
+   height: 40px;
     grid-area: main;
     align-self: center;
     justify-self: center;
@@ -788,7 +728,7 @@ button.learn-more .button-text {
 
 #deletePic{
 	width: 30px; height: 30px;
-    background: white;
+    background: white;;
     border: none;
 }
 #deletePicImg{
@@ -796,15 +736,35 @@ button.learn-more .button-text {
 	margin-top: -3px;
     width: 25px;
 }
+
+.profileButton:hover {
+    background: #67c5ff;
+    color: white;
 #profileImg{
-	
+	width:250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#adviseNickname, #adviseProfile-msg{
+	font-size: 12px;
+}
+#modalProfile{
+	width: 45%;
+    margin-top: 40px;
+    margin-left: 25%;
 }
 /* ----------------------------------------------------------------- 나유리 끝 -------- */
 </style>
 <script>
 	window.onload = function(){
 		
-	
+		if("${checkKey}"=='y'){
+			console.log("${checkKey}");
+			$("#friendsList").click();
+		}
+		
+		
 	var feedState = 0; // 0:PersonalFeed 1:ScrapFeed
 	var myMail = '${mvo.email }';
 	$(function() {
@@ -1061,10 +1021,9 @@ button.learn-more .button-text {
 
 <body>
     <jsp:include page="/resources/jsp/nav.jsp"/>
+    <!--<jsp:include page="/resources/jsp/alr.jsp"/>-->
     <jsp:include page="/resources/jsp/msg.jsp"/>
 	<div class="container-fluid">
-		${loginInfo.profile_img } ???????????????????????
-		<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
 		<div class="profile">
 			<c:choose>
 				<c:when test="${loginInfo.email ne mvo.email}">
@@ -1077,20 +1036,16 @@ button.learn-more .button-text {
 						</c:if>
 						
 					</div>
-					<div class="profileLayout">
-					
+					<div class="profileLayout">					
 						<div class="profileLayoutLeft">
 						<c:if test="${frResult == null || frResult == 0  }">
-							<button class="profileButton btn-lg" id="openModalBtn">＋</button>
-							<div class="btnText">친구요청</div>
+							<button class="profileButton btn-lg" id="openModalBtn">친구목록</button>
 						</c:if>			
 							<c:if test="${frResult == 1 }">
 						<button class="profileButton btn-lg" id="ingReq">＋</button>
-							<div class="btnText">친구요청중</div>
 						</c:if>	
 						<c:if test="${frResult == 2  }">
-							<button class="profileButton btn-lg" id="openFrModal" >＋</button>
-							<div class="btnText">친구</div>
+							<button class="profileButton btn-lg" id="openFrModal" >친구상태</button>
 						</c:if>	
 						
 						</div>
@@ -1101,8 +1056,7 @@ button.learn-more .button-text {
 					</div>
 					
 					<div class="profileLayoutRight">
-						<button class="messageRequest profileButton" id="msgRequest">＋</button>
-						<div class="btnText">메세지</div>
+						<button class="messageRequest profileButton" id="msgRequest"><span>메세지보내기</span></button>
 					</div>
 					</div>
 					<div class="profileMessageLayout">
@@ -1117,8 +1071,7 @@ button.learn-more .button-text {
 					
 					<div class="profileLayout">
 						<div class="profileLayoutLeft">
-							<button class="profileButton" id="friendsList">＋</button>
-							<div class="btnText">친구목록</div>
+							<button class="profileButton" id="friendsList">친구목록</button>
 						</div>
 						<div class="profileLayoutCenter">
 							<div class="profileImageBox">
@@ -1128,8 +1081,7 @@ button.learn-more .button-text {
 						</div>
 						<c:if test="${loginInfo.id_type eq 'E'}">
 							<div class="profileLayoutRight">
-								<button class="profileButton" id="changeInfo">＋</button>
-								<div class="btnText">회원정보</div>
+								<button class="profileButton" id="changeInfo">정보수정</button>
 							</div>
 						</c:if>						
 					</div>
@@ -1153,9 +1105,8 @@ button.learn-more .button-text {
 				</div>
 				<div class="menubar">
 		<button type="button" id="personalFeed">Personal feed</button>
-		<button type="button" id="registerFeed">+게시물 추가+</button>
-		<button type="button" id="scrapFeed">scrap feed</button>
-			
+		<button type="button" id="registerFeed">게시물 추가</button>
+		<button type="button" id="scrapFeed">scrap feed</button>			
 		</div>
 				</c:otherwise>
 
@@ -1195,7 +1146,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
@@ -1248,6 +1199,7 @@ button.learn-more .button-text {
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="detailView_header">
+	      
 	         <span class="writerProfile"><img class="userProfileImg" src="" alt=""></span>
 	         <span class="writer"></span>
 	        <h5 class="modal-title" id="exampleModalLabel" style=""></h5>
@@ -1271,7 +1223,7 @@ button.learn-more .button-text {
 	      	<div class="footer-btns" style="display:flex;width:50%;height:10%;"></div>
 	      	<div class="writeReplyBox">					
 	         	<span class="myProfile"><img class="userProfileImg" src="${loginInfo.profile_img }" alt=""></span>
-	       		<h5 class="modal-title" id="exampleModalLabel">${loginInfo.nickname }</h5>
+	       		<h5 class="myNickname">${loginInfo.nickname }</h5>
 	       		<div id="writeReply" contenteditable="true"></div>
 	       		<button type="button" class="replyBtn" onclick="replyBtnOnclick('${loginInfo.email}');">등록</button>
 			</div>
@@ -1364,6 +1316,9 @@ button.learn-more .button-text {
 			</div>
 		</div>
 	</div>
+	
+<!-- 	알림에서 친구 창 띄우기 -->
+	
 
 	
 	
@@ -1480,18 +1435,20 @@ button.learn-more .button-text {
                 <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
-                            <div class="modal-header header" style="color:white;">
+                            <div class="modal-header" style="color:white; background-color: #171C28;">
                                 <h5 class="modal-title" id="title">프로필 편집</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true" style="color:white;">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body" style="text-align:center; color:#0D4373;">
-                                <label style="margin:auto;">프로필 사진</label><br>
-                                <img src="/resources/images/default_profile_img.png" id="setProfile" style="margin:auto; width:30%; border-radius:50%"><br><br>
+<!--                                 <label style="margin:auto;">프로필 사진</label><br> -->
+                                <img src="" id="setProfile" name="profile_img" style="margin:auto; width:30%; border-radius:50%"><br><br>
+                                <input type="hidden" name="profile_img" id="hiddenImg">
+                                
                                 <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
                                 <input type="file" id="profileImg" name="profileImg"><br> 
-                                <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p>
+<!--                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p> -->
                                 <label>닉네임 : </label>
                                 <input type="text" id="inputNick" name="nickname" maxlength="20">
                                 <label class="adviseIn" id="adviseInNickname" hidden></label><br>
@@ -1504,16 +1461,16 @@ button.learn-more .button-text {
                             <div class="modal-footer">
                             <div id="cbtnContainer">
                                 <button type="button" class="learn-more" id="changeProfileBtn" style="color:#0D4373; margin-right:5%;">
-	                                <span class="circles" aria-hidden="true">
-								      <span class="icon arrow"></span>
-								    </span>
-								    <span class="button-text">수정</span><br>
+                                   <span class="circles" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">수정</span><br>
                                 </button>
                                 <button type="button" class="learn-more" id="cancelBtn"  style="color:#0D4373; margin-right:5%;">
-                                	<span class="circles" aria-hidden="true">
-								      <span class="icon arrow"></span>
-								    </span>
-								    <span class="button-text">취소</span><br>
+                                   <span class="circles" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">취소</span><br>
                                 </button>
                                 </div>
                             </div>
@@ -1523,7 +1480,7 @@ button.learn-more .button-text {
             </div>
         </div>
     </form>
-<!-- 내 프로필 수정 끝	 -->
+<!-- 내 프로필 수정 끝    -->
 
 	
 	<script>	
@@ -1535,9 +1492,6 @@ button.learn-more .button-text {
 		});
 	    
 	    
-	    // 메시지 보내기 -----------------------------------------------------------
-	    // 메시지 보내기 -----------------------------------------------------------
-	    // 메시지 보내기 -----------------------------------------------------------
 	    $("#msgRequest").on("click",function(){
 	    	
 	    	$("div[id='view1']").fadeIn(0);
@@ -1970,6 +1924,7 @@ button.learn-more .button-text {
 					console.log("profile_msg : " + dto.profile_msg);
 				}
 				$("#setProfile").attr("src", dto.profile_img);
+				$("#hiddenImg").attr("value", dto.profile_img);
 								
 				 function readURL(input) {
 			            if (input.files && input.files[0]) {
@@ -2042,6 +1997,11 @@ button.learn-more .button-text {
 			                return false;
 			            }
 			            console.log("완성 닉네임 : " + nickname.value);
+			            
+			            if($("#setProfile").attr('src') == "/resources/images/default_profile_img.png"){
+			            	$("#hiddenImg").attr("value","/resources/images/default_profile_img.png");
+			            }
+			            
 			            doc.getElementById("profileFrm").submit();
 					}); 
 			        //submit 직전 유효성 검사
@@ -2204,47 +2164,6 @@ button.learn-more .button-text {
             }
         })
     });
-	
-    $(".profileImageBox").mouseenter(function(){
-		$("#MyClockDisplay").css("top","0px");
-    });
-     $(".profileImageBox").mouseleave(function(){ 
- 		$("#MyClockDisplay").css("top","-80px");
-    }); 
-	function showTime(){
-	    var date = new Date();
-	    var h = date.getHours(); // 0 - 23
-	    var m = date.getMinutes(); // 0 - 59
-	    var s = date.getSeconds(); // 0 - 59
-	    var session = "AM";
-	    
-	    if(h == 0){
-	        h = 12;
-	    }
-	    
-	    if(h > 12){
-	        h = h - 12;
-	        session = "PM";
-	    }
-	    
-	    h = (h < 10) ? "0" + h : h;
-	    m = (m < 10) ? "0" + m : m;
-	    s = (s < 10) ? "0" + s : s;
-	    
-	    var time = h + ":" + m + ":" + s + " " + session;
-	    document.getElementById("MyClockDisplay").innerText = time;
-	    document.getElementById("MyClockDisplay").textContent = time;
-	    
-	    setTimeout(showTime, 1000);
-	    
-	}
-
-	showTime();
-	
-    var poption1;
-    var boption1;
-    var boption2;
-    var boption3;
 
     $("#changeInfo").on("click", function () {
         $.ajax({

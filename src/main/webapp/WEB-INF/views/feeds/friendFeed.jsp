@@ -25,9 +25,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+	
+}
 body{
 	background-color:#171C28;
-    color: white;
 }
 #wrapper {
    margin: auto;
@@ -78,7 +82,6 @@ html,body {
    width: 99.5%;
    height:600px; 
 }
-
 .slide {
    width: 99.5%;
 }
@@ -152,7 +155,15 @@ html,body {
 }
 
 /* 댓글 */
-
+.reply{	
+    overflow: scroll;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    max-height: 300px;
+}
+.reply::-webkit-scrollbar {
+        width: 0 !important
+}
 .myProfileImgBox,.userProfile{
 	margin:10px 20px;
 }
@@ -168,15 +179,18 @@ html,body {
     height: 50px;
     border-radius: 16px;
     border: 1px solid rgb(239, 239, 239);
-    padding: 0px 10px;
-    line-height: 48px;
+    padding: 10px 10px;
+    overflow-y: scroll;
+}
+
+.writeReply::-webkit-scrollbar {
+        width: 0 !important
 }
 .replyContents{	
     background: transparent;
     font-size: 16px;
     margin: 12px 12px;
-    width: 100%;
-    height: 50px;
+    width: 95%;
     border-radius: 16px;
     border: 1px solid rgb(239, 239, 239);
     padding: 0px 10px;
@@ -213,7 +227,7 @@ html,body {
 }
 .userReply{	
     display: inline-block;
-    width: 430px;
+    width: 100%;
 }
 .replyBtns>button:not(.showReply):not(.hideReply){	
     border: 1px solid #999;
@@ -232,32 +246,6 @@ html,body {
     background: transparent;
     color:#999;
 }
-.parentReply{
-	border:1px solid #999;
-}
-/* .modal {
-          text-align: center;
-        } */
-/* @@media screen and (min-width: 768px) {
-            display: inline-block;
-            vertical-align: middle;
-            content: " ";
-            height: 100%;
-          }
-        } */
-/* .modal-dialog {
-     display: inline-block;
-     text-align: left;
-     vertical-align: middle;
-} */
-
-/* All Device */
-/* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
-
-/* Mobile Device */
-/* 768px 미만 해상도의 모바일 기기를 위한 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. 미디어 쿼리를 지원하지 않는 모바일 기기를 위해 미디어 쿼리 구문을 사용하지 않는다. */
-
-/* Tablet &amp; Desktop Device */
 @media all and (min-width:768px) {
    /*     사용자 해상도가 768px 이상일 때 이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
    #wrapper {
@@ -399,13 +387,18 @@ html,body {
                      for (var i = 0; i < list.length; i++) {
                          var feed = $("<div class='feed' feed_seq="+list[i].feed_seq+"></div>");
                          var profile = $("<div class='row profile'></div>");
-                         var Img = $("<div class='row profileImg'></div>") 
+                         var Img = $("<div class='row profileImg'></div>");
                          Img.append(profile_imgList[i]); 
                          profile.append(Img);
 
                          var nick = $("<div class='row profileNickname'></div>");
-                         nick.append(list[i].nickname);
+                         nick.append(list[i].nickname);                    
                          profile.append(nick);
+
+                         var Img = $("<div class='row profileTitle'></div>");
+                         Img.append(profile_imgList[i]); 
+                         profile.append(Img);
+                         
                          if(list[i].email != "${loginInfo.email}"){
                          var feedDeclaration = $("<div class='row profilefeedDeclaration'></div>");
                          feedDeclaration.attr("seq",list[i].feed_seq);
@@ -617,7 +610,7 @@ html,body {
    <jsp:include page="/resources/jsp/nav.jsp" />
    <jsp:include page="/resources/jsp/msg.jsp" />
    <jsp:include page="/resources/jsp/alr.jsp" />
-   <div id="wrapper" style="position: relative; top: 30px">
+   <div id="wrapper" style="position: relative; top: 7px">
       <!-- <h1>친구피드</h1> -->
       <c:choose>
          <c:when test="${fn:length(list) <1}">
@@ -711,7 +704,6 @@ html,body {
                      ${feed.contents }</div>
 
                      <div class="reply">
-                     	<button type="button" class="allReply" style="display:none">──────────────  댓글보기</button>
 							<c:forEach items="${replyList[status.index] }" var="reply">								
 								<c:if test="${reply.parent == 0}">							
 								<div class="parentReply" reply_seq="${reply.reply_seq }" >
@@ -724,13 +716,15 @@ html,body {
 										</span>
 									</div>
 									<div class="replyBtns">
+									<c:if test="${loginInfo.email eq reply.email}">
 										<button type="button" class="deleteReply" style="">삭제</button>
+									</c:if>
 										<button type="button" class="registerChildBtn" style="">답글</button>
 										<button type="button" class="showReply" style="display: none">──────────────  답글보기</button>
 										<button type="button" class="hideReply" style="display: none">────────────── 답글숨기기</button>
 									</div>
 									<c:forEach items="${replyList[status.index] }" var="childReply">	
-										<c:if test="${childReply.parent ==  reply.reply_seq}">											
+										<c:if test="${childReply.parent == reply.reply_seq}">											
 											<div class="childReply" value="1" parent_seq="${childReply.parent }" reply_seq="${childReply.reply_seq }" style="display:none">
 												<span class="userProfile"> 
 												<img class="userProfileImg"src="${reply.profile_img}" alt="사진오류"></span> 
@@ -739,23 +733,14 @@ html,body {
 												</span>
 												<div class="replyBtns">
 													<button class="registerChildReply" style="display: none;">등록</button>
-													<button class="childReplyCancel" style="display: none;">취소</button>
-													<button class="deleteChildReplyBtn" style="">삭제</button>
+													<button class="childReplyCancel" style="display: none;">취소</button>													
+													<c:if test="${loginInfo.email eq reply.email}">
+													<button class="deleteChildReplyBtn">삭제</button>
+													</c:if>
 												</div>
 											</div>
 											<script>	
-// 												console.log($(".reply").children(".parentReply").length);
-// 												console.log($("div[parent_seq=${childReply.parent }]").closest(".feed").attr("feed_seq") + "???");
-// 												if($(".reply").children(".parentReply").length == 0){
-// 													$("div[parent_seq=${childReply.parent }]").parent().show();
-// 													$("div[parent_seq=${childReply.parent }]").parent().siblings(".allReply").hide();
-// 												}else{
-// 													$("div[parent_seq=${childReply.parent }]").parent().hide();
-// 													$("div[parent_seq=${childReply.parent }]").parent().siblings(".allReply").show();													
-// 												}
-												
-												$("div[parent_seq=${childReply.parent }]").parent().attr("child",1);
-												console.log($("div[parent_seq=${childReply.parent }]").closest(".reply").children(".parentReply").length + "????????");
+												$("div[parent_seq=${childReply.parent }]").parent().attr("child",1); 
 												if($("div[parent_seq=${childReply.parent }]").parent().attr("child") == 1){
 													$("div[parent_seq=${childReply.parent }]").parent().find(".showReply").show();
 													$("div[parent_seq=${childReply.parent }]").parent().siblings(".allReply").show();
@@ -995,16 +980,16 @@ html,body {
             
             //댓글 스크립트
         
-		function replyBtnOnclick(email,feed_seq,nickname,my) {	   
-	   		console.log("들어왔따따따따따따!");
-	   		var writeReply = $(my).siblings(".writeReply");
-			var contents = $(my).siblings(".writeReply").html();
-			console.log(feed_seq + " ## ?");
-			console.log($(my) + " #^^# ?");
-			console.log(contents + " ???? ");
+		function replyBtnOnclick(email,feed_seq,nickname,my) {
+  			var writeReply = $(my).siblings(".writeReply");
+			var contentsHtml = $(my).siblings(".writeReply").html();
+			var contents = contentsHtml.replace(/(<div>|<\/div>|<br>)/g, '\r\n');
 			if(contents == ""){ //컨텐츠가 null 값일 경우 등록 동작
 				return false;
-			}
+			}else if(contents.length>100){
+	            alert("댓글은 100글자 이하로 작성해주세요");
+	            return;
+	         }
 			$.ajax({
 				type : "POST",
 				url : "${pageContext.request.contextPath }/feed/registerReply",

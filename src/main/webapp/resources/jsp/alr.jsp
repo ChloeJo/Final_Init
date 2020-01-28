@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <!-- 친구요청 모달 영역 -->
 	<div id="friendApply" class="modal fade" id="myModal"
 		role="dialog"  tabindex="-1" aria-labelledby="myModalLabel"
@@ -117,6 +118,7 @@
 	
 	
 	
+
 <div style="padding-top:60px;">
 <!-- 		<button id=showAlarm>알람 확인하기</button> <button id=closeAlarm>알람 끄기</button> -->
 		<div id="alarmPreContainer">
@@ -226,20 +228,23 @@
 		        		 if(resp[i].alarm_check == 'N'){
 		        			 $(".a_sector").append("<div class='a_pre_line "+seqId+"' style='background-color:#e9f1f5; color:black;'>"
 			        			 		+ "<div class='a_pre_pf'><img src='/images/friendAlarm.png' class='a_pre_pf_img_nr'></div>"
-			        			 		+ "<div class='a_pre_text friendsList' style='cursor:pointer;'>" + resp[i].nickname +"님의 친구 요청이 있습니다. </div>"
+			        			 		+ "<a href='${pageContext.request.contextPath}/feed/myFeed?email=${loginInfo.email}&checkKey=y'><div class='a_pre_text' id='"+resp[i].email+"' style='cursor:pointer;'>" + resp[i].nickname +"님의 친구 요청이 있습니다. </div></a>"
 			        			 		+ "<div class='a_pre_time'>"+ resp[i].reg_date_edit +"</div>"
 			        			 		+"<button class=delAlarm value="+seq+" style='background-color:#e9f1f5; color:black;'>X</button></div>");
 		        			 
 		        		 }else if(resp[i].alarm_check == 'Y'){
 		        			 $(".a_sector").append("<div class='a_pre_line "+seqId+"'>"
 			        			 		+ "<div class='a_pre_pf'><img src='/images/friendAlarm.png' class='a_pre_pf_img_nr'></div>"
-			        			 		+ "<div class='a_pre_text friendsList' style='cursor:pointer;'>" + resp[i].nickname +"님의 친구 요청이 있습니다. </div>"
+			        			 		+ "<a href='${pageContext.request.contextPath}/feed/myFeed?email=${loginInfo.email}&checkKey=y'><div class='a_pre_text' id='"+resp[i].email+"' style='cursor:pointer;'>" + resp[i].nickname +"님의 친구 요청이 있습니다. </div></a>"
 			        			 		+ "<div class='a_pre_time'>"+ resp[i].reg_date_edit +"</div>"
 			        			 		+"<button class=delAlarm value="+seq+">X</button></div>");
 		        		 }
 		        	 
 		        	 }
 	        	 }
+	        	 
+	        	 // 친구 요청 페이지로 보내기
+	        	 
 	        	 
 	        	 // 알림 삭제
 	        	 $(".delAlarm").on("click",function(){
@@ -263,6 +268,7 @@
 	        		 
      			 });
 	        	 
+
 //	 				------------------------------------------------------------------------------------------------------
     // 친구 모달 버튼에 이벤트를 건다.	
         $('#friendsList').on('click', function () {
@@ -504,6 +510,7 @@
 
         });
 // 				------------------------------------------------------------------------------------------------------
+
 			}).fail(function(a,b,c){
 				console.log(a);
 				console.log(b);
