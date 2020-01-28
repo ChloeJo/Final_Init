@@ -709,7 +709,7 @@ margin:5px;
   font-size: inherit;
   font-family: inherit;
 }
-button.learn-more {
+        button.learn-more {
   width: 10rem;
   height: auto;
 /*    border: 1px solid red;*/
@@ -721,7 +721,7 @@ button.learn-more .circles {
   margin: 0;
   width: 2.5rem;
   height: 2.5rem;
-  background: #171C28;
+  background: white;
   border-radius: 1.225rem;
 }
 button.learn-more .circles .icon {
@@ -746,8 +746,8 @@ button.learn-more .circles .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  border-top: 0.125rem solid #171C28;
+  border-right: 0.125rem solid #171C28;
   transform: rotate(45deg);
 }
 button.learn-more .button-text {
@@ -759,7 +759,7 @@ button.learn-more .button-text {
   bottom: 0;
   padding: 0.35rem 0;
   margin: 0 0 0 1.85rem;
-  color: #282936;
+  color: white;
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
@@ -769,11 +769,11 @@ button.learn-more .button-text {
   width: 100%;
 }
 .learn-more:hover .circles .icon.arrow {
-  background: #fff;
+  background: #171C28;
   transform: translate(1rem, 0);
 }
 .learn-more:hover .button-text {
-  color: #fff;
+  color: #171C28;
 }
 
 @supports (display: grid) {
@@ -788,7 +788,7 @@ button.learn-more .button-text {
 
 #deletePic{
 	width: 30px; height: 30px;
-    background: white;
+    background: #171C28;
     border: none;
 }
 #deletePicImg{
@@ -1480,17 +1480,17 @@ button.learn-more .button-text {
             <div class="profileContainer">
                 <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header header" style="color:white;">
-                                <h5 class="modal-title" id="title">프로필 편집</h5>
+                        <div class="modal-content" style="background:#171C28; margin-left: 18%; width: 800px; height: 730px;">
+                            <div class="modal-header header" style="color:white; background:#171C28;">
+                                <h5 class="modal-title" id="title">Profile</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body" style="text-align:center; color:#0D4373;">
-                                <label style="margin:auto;">프로필 사진</label><br>
-                                <img src="/resources/images/default_profile_img.png" id="setProfile" style="margin:auto; width:30%; border-radius:50%"><br><br>
-                                <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
+                            <div class="modal-body" style="text-align:center; color:white;">
+<!--                                 <label style="margin:auto;">프로필 사진</label><br> -->
+                                <img src="/resources/images/default_profile_img.png" id="setProfile" style="margin:auto; width:	40%; border-radius:50%;"><br><br>
+                                <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash2.png" id="deletePicImg"></button>
                                 <input type="file" id="profileImg" name="profileImg"><br> 
                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p>
                                 <label>닉네임 : </label>
