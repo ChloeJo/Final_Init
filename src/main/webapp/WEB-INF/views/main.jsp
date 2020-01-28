@@ -271,14 +271,17 @@
 	}
 	
 	.closeBtn{
-		margin: 0px;
-		padding-right: 5px;
+		margin-right: 100px;
+		margin-bottom: 0px;
 		text-align: right;
 	}
 	.tab5-1_body, .tab5-1_footer, .tab5-1_header{
 		text-align: center;
 	}
-	
+	#tab5-1_profileImg{
+		margin: 10px;
+		margin: auto;
+	}
 	.tab5-1_header{
 		padding: 15px;
 		color: #171C28;
