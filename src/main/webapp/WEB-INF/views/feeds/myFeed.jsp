@@ -490,16 +490,23 @@
 
 /* 메뉴바 */
 .menubar{
-    max-width: 600px;
+    max-width: 716px;
     min-width: 464px;
     margin: 20px auto;
 }
 .menubar>button{
-	border:none; 
-	background-color:transparent;
-    font-size: 20px;
-    color:white;
     width: 32.7%;
+    height: 38px;
+    font-size: 20px;
+    background: transparent;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 5px;
+    transition: .4s;
+}
+.menubar>button:hover{
+    background: #67c5ff;
+    color: white;
 }
 
 /* 버튼호버 */
@@ -1234,7 +1241,7 @@ button.learn-more .button-text {
 				<div class="modal-header" style="background-color:#171C28;">
 					<h4 class="modal-title" id="myModalLabel2" style="color:gainsboro;">My Friendlist</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true" style="color:white;">×</span>
 					</button>
 
@@ -1302,7 +1309,7 @@ button.learn-more .button-text {
 			<div class="modal-content" style="background-color:#171C28; color:gainsboro;">
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin:0px;">
 					<span aria-hidden="true">×</span>
 					</button>
 				</div>
@@ -1330,7 +1337,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 
@@ -1359,7 +1366,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 
@@ -1393,7 +1400,7 @@ button.learn-more .button-text {
 				<h4 class="modal-title" id="modalModify" style="color: white;">My
 					Information</h4>
 				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
+					aria-label="Close" style="margin:0px;">
 					<span aria-hidden="true" style="color: white;">×</span>
 				</button>
 			</div>
@@ -1499,13 +1506,13 @@ button.learn-more .button-text {
                         <div class="modal-content">
                             <div class="modal-header" style="color:white; background-color: #171C28;">
                                 <h5 class="modal-title" id="title">프로필 편집</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin:0px;">
                                     <span aria-hidden="true" style="color:white;">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body" style="text-align:center; color:#0D4373;">
 <!--                                 <label style="margin:auto;">프로필 사진</label><br> -->
-                                <img src="" id="setProfile" name="profile_img" style="margin:auto; width:30%; border-radius:50%"><br><br>
+                                <img src="" id="setProfile" name="profile_img" style="margin:auto; width:300px;height:300px; border-radius:100%"><br><br>
                                 <input type="hidden" name="profile_img" id="hiddenImg">
                                 
                                 <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
