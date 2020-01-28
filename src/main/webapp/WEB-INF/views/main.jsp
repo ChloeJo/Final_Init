@@ -20,36 +20,38 @@
 </head>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
-*{
-	font-family: 'Noto Sans KR', sans-serif;
+	*{
+		font-family: 'Noto Sans KR', sans-serif;
         box-sizing: border-box;
     }
+    
+    input:focus,
+	select:focus,
+	textarea:focus,
+	button:focus {
+	    outline: none;
+	}
  	.modal {
          text-align: center;
 
-    }
-    
+    }    
     .modal-content {
         background-color: #fffefc;
         min-height: 500px;
         vertical-align: center;
     }
-
     .modal-header {
         background-color: #171C28;
         color: #fffefc;
     }
-
     .modal-body {
         padding: 30px;
-    }
-    
+    }    
     #indexModalTitle {
         font-size: 50px;
         font-family: 'Noto Sans KR', sans-serif;
         font-weight: bold;
     }
-
     #closeBtn {
         font-size: 30px;
         color: #171C28;
@@ -111,6 +113,7 @@
         margin: 5px;
         border: none;
         border-radius: 8px;
+        cursor: pointer;
     }
 	
 	#logoDiv img{
@@ -140,6 +143,8 @@
 
     .tab2_body {
         font-family: 'Noto Sans KR', sans-serif;
+        height: 100%;
+        margin: auto;
     }
 
     .tab2_body label {
@@ -200,47 +205,122 @@
         color: #fffefc;
     }
 	
-	#tab5-1_generalSignup, #tab5-2_kakaoLoginBtn{
+	#tab4-1_generalSignup, #tab4-2_kakaoLoginBtn{
         width: 200px;
 	    height: 200px;
 	    padding: 5px;
-	    margin: 10px;
 	    border: none;
 	    border-radius: 8px;
 	    font-size: 19px;
-	    background-color: #171C28;
+ 	    background-color: #171C28; 
 	    color: white;
+	    margin: auto;
 	}
 	
-	#tab5-2_kakaoLoginBtn:hover{
+	#tab4-1_generalSignup{
+		margin-right: 20px;
+	}
+	#tab4-2_kakaoLoginBtn{
+		margin-left: 20px;
+	}
+		
+	#tab4-2_kakaoLoginBtn:hover{
 		cursor: pointer;
 	}
 	
 	#tab4_goMain{
 		width: 150px;
 		height: 50px;
-		background-color: #171C28;
+		background-color: #393e4d;
 	}
 	
 	.tab4_signupBtnBox{
 		padding: 50px;
+		display: flex;
+		text-align: center;
+	}
+	
+	.kakaoLabel{
+		margin: 0;
 	}
 	
     .tab5-1_container {
         text-align: left;
     }
-
+	#tab5-1_verifyCode{
+		border-radius: 5px;
+	}
+	#tab5-1_setProfile{
+		width:200px;
+		border-radius: 100%;
+	}
+	#tab5-1_deleteProfile{
+		margin-top: 5px;
+	}
+	#tab5-1_sendCode{
+        width: 110px;
+        color: white;
+        background-color: #171C28;
+        margin: 5px;
+        padding: 5px;
+	}
+	.tab5-1_body > button, .tab5-1_footer > button{
+	  	border-radius: 5px;
+	  	border: none;
+	  	padding: 5px;
+	}
+	
+	.closeBtn{
+		margin-right: 100px;
+		margin-bottom: 0px;
+		text-align: right;
+	}
+	.tab5-1_body, .tab5-1_footer, .tab5-1_header{
+		text-align: center;
+	}
+	#tab5-1_profileImg{
+		margin: 10px;
+		margin: auto;
+	}
+	.tab5-1_header{
+		padding: 15px;
+		color: #171C28;
+	}
+	
+	.tab5-1_footer > button{
+	    width: 120px;
+	    height: 50px;
+        color: white;
+        background-color: #171C28;
+        margin: 15px;
+        padding: 5px;
+	}
+	
     .tab5-1_body .userInput {
         width: 270px;
         height: 30px;
         padding: 5px;
         margin: 5px;
         border-radius: 5px;
-        /* border: 1px thin gray; */
         font-size: 11px;
-        overflow:hidden;
+        overflow: hidden;
     }   
-       	
+    
+    .tab5-1_body label{
+    	font-weight: bold;
+    	color: #171C28;
+    }
+    .required {
+    	font-weight: bold;
+    	color: red;
+    }
+    .selectBirth{
+    	border-radius: 5px;
+    }
+    .selectPhone{
+    	border-radius: 5px;
+    }
+    
    	.inp {
 	  position: relative;
 	  margin-bottom: 15px;
@@ -354,7 +434,7 @@
 	}
 }
 
-@media all and (min-width : 320px) and (max-width : 768px) {
+@media all and (min-width : 320px) and (max-width : 990px) {
     .tab1_logo { display:none }
 }
 </style>
@@ -446,8 +526,12 @@
                                 <div class="tab4_container">
                                     <div class="tab4_body">
                                     	<div class="tab4_signupBtnBox">
-											<button type="button" id="tab5-1_generalSignup">일반 회원가입</button>
-											<button type="button" id="tab5-2_kakaoLoginBtn"><img src="/resources/images/kakaolink_btn.png"></button>
+											<button type="button" id="tab4-1_generalSignup">일반 회원가입</button>
+											<button type="button" id="tab4-2_kakaoLoginBtn">
+												<img src="/resources/images/kakaolink_btn.png">
+												<p class="kakaoLabel">카카오</p><p class="kakaoLabel">간편회원가입</p>
+<!-- 												<br>카카오<br>간편회원가입 -->
+											</button>
                                     	</div>
                                         <div class="tab4_btnBox">
                                             <button type="button" id="tab4_goMain">이전</button>
@@ -462,7 +546,7 @@
                                     <form action="${pageContext.request.contextPath}/guest/signUpProc.do" method="post"
                                         enctype="multipart/form-data" id="signUpForm">
                                         <div class="tab5-1_header">
-                                            <h5 id="tab5-1_signUpTitle">회원가입</h5>
+                                            <h3 id="tab5-1_signUpTitle">회원가입</h3>
                                         </div>
                                         <div class="tab5-1_body">
                                             <!-- 이메일 -->
@@ -502,18 +586,18 @@
                                             <p class="hiddenResp" id="hiddenRespNickname" hidden></p>
                                             <!-- 생년월일 -->
                                             <label>생년월일</label><span class="required">*</span class="required"><br>
-                                            <select name="year" id="tab5-1_birthYear">
+                                            <select name="year" id="tab5-1_birthYear" class="selectBirth">
                                                 <option>선택하세요.</option>
-                                            </select> <select name="month" id="tab5-1_birthMonth">
+                                            </select> <select name="month" id="tab5-1_birthMonth" class="selectBirth">
                                                 <option>선택하세요.</option>
-                                            </select> <select name="day" id="tab5-1_birthDay">
+                                            </select> <select name="day" id="tab5-1_birthDay" class="selectBirth">
                                                 <option>선택하세요.</option>
                                             </select> <input type="text" id="tab5-1_birth" name="birth" hidden><br>
                                             <p class="advise" id="adviseBirth" readonly></p>
                                             <p class="hiddenResp" id="hiddenRespBirth" hidden></p>
                                             <!-- 전화번호 -->
                                             <label>전화번호</label><span class="required">*</span class="required"><br>
-                                            <select id="tab5-1_phone1" style="text-align:center;width:80px;height:30px">
+                                            <select id="tab5-1_phone1" class="selectPhone" style="text-align:center;width:80px;height:30px">
                                                 <option value="010">010</option>
                                                 <option value="011">011</option>
                                                 <option value="016">016</option>
@@ -521,8 +605,8 @@
                                                 <option value="018">018</option>
                                                 <option value="019">019</option>
                                             </select> - 
-                                            <input type="text" id="tab5-1_phone2" maxlength="4" style="text-align:center;width:80px;"> - 
-                                            <input type="text" id="tab5-1_phone3" maxlength="4" style="text-align:center;width:80px;">
+                                            <input type="text" id="tab5-1_phone2" class="selectPhone" maxlength="4" style="text-align:center;width:80px;"> - 
+                                            <input type="text" id="tab5-1_phone3" class="selectPhone" maxlength="4" style="text-align:center;width:80px;">
                                             <input type="text" id="tab5-1_phone" name="phone" maxlength="11" hidden>
                                             <p class="advise" id="advisePhone" readonly></p>
                                             <p class="hiddenResp" id="hiddenRespPhone" hidden></p>
@@ -540,8 +624,9 @@
                                             <!-- 프로필 사진 -->
                                             <label>프로필 사진</label><br>
                                             <p class="advise" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p>
-                                            <img src="${pageContext.request.contextPath}/resources/images/default_profile_img.png" id="tab5-1_setProfile" style="width: 50px;">
-                                            <button type="button" id="tab5-1_deleteProfile">X</button>
+                                            <p class="closeBtn"><button type="button" id="tab5-1_deleteProfile">X</button></p>
+                                            <img src="${pageContext.request.contextPath}/resources/images/default_profile_img.png" id="tab5-1_setProfile">
+                                            
                                             <input type="file" id="tab5-1_profileImg" name="profileImg"><br>
                                         </div>
                                         <div class="tab5-1_footer">
@@ -785,7 +870,7 @@
         //tab4_회원가입 선택 end
         
         //tab5-2_카카오 회원가입 start
-        doc.getElementById("tab5-2_kakaoLoginBtn").addEventListener("click", function(){
+        doc.getElementById("tab4-2_kakaoLoginBtn").addEventListener("click", function(){
         	var email = doc.getElementById("tab5-2_email");
         	var adviseEmail = doc.getElementById("tab5-2_adviseEmail");
         	var hiddenRespEmail = doc.getElementById("tab5-2_hiddenRespEmail");
@@ -812,7 +897,8 @@
 							email.value = data.user_id;
 							emailOverlapCheck();
 							if(data.kakaoProfile == "none"){
-								setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
+								$("#tab5-1_setProfile").attr("src", "${pageContext.request.contextPath}/resources/images/default_profile_img.png");
+// 								setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
 								hiddenProfileImg.value = "resources/images/default_profile_img.png";
 							}else{
 								console.log("카톡 프로필 exist");
@@ -837,8 +923,9 @@
                     if (input.files && input.files[0]) {
                         var reader = new FileReader();
                         reader.onload = function (e) {
-                            console.log("프로필 사진명 : " + profileImg.value);  // 파일명                
-                            setProfile.src = e.target.result;
+                            console.log("프로필 사진명 : " + profileImg.value);  // 파일명     
+                            $("#tab5-1_setProfile").attr("src", e.target.result);
+//                             setProfile.src = e.target.result;
                         }
                         reader.readAsDataURL(input.files[0]);
                     }
@@ -849,7 +936,8 @@
                 });
         		
         		doc.getElementById("tab5-2_deleteProfile").addEventListener("click", function(){
-        			setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
+        			$("#tab5-1_setProfile").attr("src", "${pageContext.request.contextPath}/resources/images/default_profile_img.png");
+//         			setProfile.src = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
         			hiddenProfileImg.value = "${pageContext.request.contextPath}/resources/images/default_profile_img.png";
         		});
         		//프로필 사진 uploda 이벤트 end
@@ -943,7 +1031,7 @@
        //tab5-2_카카오 회원가입 end
          
         //tab5-1_ 일반 회원가입 start
-        doc.getElementById("tab5-1_generalSignup").addEventListener("click", function () {
+        doc.getElementById("tab4-1_generalSignup").addEventListener("click", function () {
             clearInput(userInput, userInput.length);
             doc.getElementById("signUpTab").click();
             appendYear();
@@ -953,7 +1041,7 @@
         
         doc.getElementById("tab5-1_cancelBtn").addEventListener("click", function (){
         	clearInput(userInput, userInput.length);
-        	doc.getElementById("mainTab").click();  	
+        	doc.getElementById("signUpBtnsTab").click();  	
         });
 
         // 입력 변수
