@@ -27,7 +27,8 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 *{
-	font-family: 'Noto Sans KR', sans-serif;	
+	font-family: 'Noto Sans KR', sans-serif;
+	
 }
 	#exampleModal{
 	width:1200px;
@@ -43,6 +44,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
     max-width: 150px;
     max-height: 150px;
     color:black;
@@ -207,10 +210,6 @@
 	position: relative;
 }
 
-.profileMessageLayout {
-	position: relative;
-	color:white;
-}
 
 
 
@@ -249,13 +248,14 @@
 .profileButton{
     width: 90px;
     height: 38px;
-    border-radius: 13px;
-    border: 1px solid white;
     background-color: white;
     font-size: 16px;
     font-family: 'Do Hyeon', sans-serif;
     background: transparent;
-    color: white;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 3px;
+    transition: .4s;
 }
 
 .btn btn-primary btn-lg {
@@ -267,15 +267,15 @@
 }
 
 #changeProfile {
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	bottom: -10px;
-	border-radius: 20px;
-	padding: 5px 20px;
-	font-weight: bold;
-	font-size: 13px;
-	background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: white;
 }
 
 #reportBtn {
@@ -289,8 +289,11 @@
 	color:#ffdeb0;
 }
 
+
 .profileMessageLayout {
-	margin-bottom: 50px;
+	position: relative;
+	color:white;
+    margin: 40px 0px 10px 0px;
 }
 
 .profileMessage {
@@ -487,9 +490,9 @@
 
 /* 메뉴바 */
 .menubar{
-    max-width: 600px;;
+    max-width: 600px;
     min-width: 464px;
-    margin: auto;
+    margin: 20px auto;
 }
 .menubar>button{
 	border:none; 
@@ -501,14 +504,7 @@
 
 /* 버튼호버 */
 .profileImageBox:hover{
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  --borderWidth: 5px;
-  position: relative;
+    --borderWidth: 5px;
 }
 .profileImageBox:after {  
   content: '';
@@ -564,7 +560,12 @@
   text-align:center;
   width:35%;
 }
-
+.writer{
+    margin: 25px 0px 25px 20px;
+}
+.modal-title{
+	margin:auto;
+}
 /* 호버 */
 /* All Device */
 /* 모든 해상도를 위한 공통 코드를 작성한다. 모든 해상도에서 이 코드가 실행됨. */
@@ -585,7 +586,7 @@
 	.profileButton {
    		width: 65px;
     	height: 30px;
-    	font-size: 13px;
+   		font-size: 11px;
 	}
 /* 	.row{ */
 /* 		margin:0px; */
@@ -735,6 +736,10 @@ button.learn-more .button-text {
 	margin-top: -3px;
     width: 25px;
 }
+
+.profileButton:hover {
+    background: #67c5ff;
+    color: white;
 #profileImg{
 	width:250px;
 	white-space: nowrap;
@@ -1034,13 +1039,13 @@ button.learn-more .button-text {
 					<div class="profileLayout">					
 						<div class="profileLayoutLeft">
 						<c:if test="${frResult == null || frResult == 0  }">
-							<button class="profileButton btn-lg" id="openModalBtn">+</button>
+							<button class="profileButton btn-lg" id="openModalBtn">친구목록</button>
 						</c:if>			
 							<c:if test="${frResult == 1 }">
 						<button class="profileButton btn-lg" id="ingReq">＋</button>
 						</c:if>	
 						<c:if test="${frResult == 2  }">
-							<button class="profileButton btn-lg" id="openFrModal" >+</button>
+							<button class="profileButton btn-lg" id="openFrModal" >친구상태</button>
 						</c:if>	
 						
 						</div>
@@ -1051,7 +1056,7 @@ button.learn-more .button-text {
 					</div>
 					
 					<div class="profileLayoutRight">
-						<button class="messageRequest profileButton" id="msgRequest">＋</button>
+						<button class="messageRequest profileButton" id="msgRequest"><span>메세지보내기</span></button>
 					</div>
 					</div>
 					<div class="profileMessageLayout">
@@ -1100,9 +1105,8 @@ button.learn-more .button-text {
 				</div>
 				<div class="menubar">
 		<button type="button" id="personalFeed">Personal feed</button>
-		<button type="button" id="registerFeed">+게시물 추가+</button>
-		<button type="button" id="scrapFeed">scrap feed</button>
-			
+		<button type="button" id="registerFeed">게시물 추가</button>
+		<button type="button" id="scrapFeed">scrap feed</button>			
 		</div>
 				</c:otherwise>
 
@@ -1142,7 +1146,7 @@ button.learn-more .button-text {
 				<div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">친구 관계 설정</h4>
 					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+						aria-label="Close" style="margin:0px;">
 						<span aria-hidden="true">×</span>
 					</button>
 				</div>
@@ -1488,9 +1492,6 @@ button.learn-more .button-text {
 		});
 	    
 	    
-	    // 메시지 보내기 -----------------------------------------------------------
-	    // 메시지 보내기 -----------------------------------------------------------
-	    // 메시지 보내기 -----------------------------------------------------------
 	    $("#msgRequest").on("click",function(){
 	    	
 	    	$("div[id='view1']").fadeIn(0);
