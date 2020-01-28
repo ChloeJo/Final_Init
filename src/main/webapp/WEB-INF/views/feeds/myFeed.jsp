@@ -749,6 +749,68 @@ button.learn-more .button-text {
     margin-top: 40px;
     margin-left: 25%;
 }
+#inputNick, #inputProfile_msg {
+  border-style: none;
+  background: transparent;
+  outline: none;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  max-width: 400px;
+  min-width: 200px;
+  margin: auto;
+  border-radius: 2px;
+        padding: 10px 10px 10px 10px;
+  background: rgba(252, 252, 252, 0.8);
+}
+.webflow-style-input:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+  height: 2px;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  background-position: 0% 0%;
+  background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+  background-size: 500% auto;
+  animation: gradient 3s linear infinite;
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+    color: #4b4b4b;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    vertical-align: middle;
+}
+.webflow-style-input input::-webkit-input-placeholder {
+  color: #7881A1;
+}
+
+.webflow-style-input button {
+  color: #7881A1;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color 0.25s;
+}
+.webflow-style-input button:hover {
+  color: #BFD2FF;
+}
 /* ----------------------------------------------------------------- 나유리 끝 -------- */
 </style>
 <script>
@@ -1445,12 +1507,13 @@ button.learn-more .button-text {
                                 <button type="button" id="deletePic"><image src="${pageContext.request.contextPath}/resources/images/trash.png" id="deletePicImg"></button>
                                 <input type="file" id="profileImg" name="profileImg"><br> 
 <!--                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p> -->
-                                <label>닉네임 : </label>
-                                <input type="text" id="inputNick" name="nickname" maxlength="20">
+<!--                                 <label>닉네임 : </label> -->
+								<div class="webflow-style-input">
+                                <input type="text" id="inputNick" name="nickname" maxlength="20"></div>
                                 <label class="adviseIn" id="adviseInNickname" hidden></label><br>
                                 <p class="adviseOut" id="adviseNickname" readonly>*4~20자 영문 대 소문자, 숫자, 특수문자(_)만 사용 가능합니다.</p>
-                                <label>상태 매세지 : </label>
-                                <input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200">
+<!--                                 <label>상태 메시지 : </label> -->
+                                <div class="webflow-style-input"><input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200"></div>
                                 <label class="adviseIn" id="adviseInProfile-msg" hidden></label><br>
                                 <p class="adviseOut" id="adviseProfile-msg" readonly>*200자 이내로 입력 가능합니다.</p>
                             </div>
