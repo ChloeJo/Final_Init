@@ -1994,7 +1994,8 @@ button.learn-more .button-text {
 			                	var reader = new FileReader();                
 			                	reader.onload = function (e) {
 				                    console.log(profile_img.value);  // 파일명                
-				                    setProfile.src = e.target.result; 
+				                    setProfile.src = e.target.result;
+				                    $("#hiddenImg").attr("value", dto.profile_img);
 			               		}                
 			                reader.readAsDataURL(input.files[0]);
 			            }
@@ -2006,6 +2007,7 @@ button.learn-more .button-text {
 
 			        deletePic.addEventListener("click", function(){
 			            setProfile.src = "/resources/images/default_profile_img.png";
+			            $("#hiddenImg").attr("value", "/resources/images/default_profile_img.png");
 			        });     
 
 			        nickname.addEventListener("keyup", function(){
@@ -2070,8 +2072,8 @@ button.learn-more .button-text {
 			        //submit 직전 유효성 검사
 
 			        $("#cancelBtn").on("click", function() {
-							$("#modalProfile").modal("hide");
-						});
+						$("#modalProfile").modal("hide");
+					});
 				
 			}).fail(function(a,b,c){
 				console.log(a);
