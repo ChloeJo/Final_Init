@@ -1442,17 +1442,18 @@ button.learn-more .button-text {
 						<br> <br>
 						<div id="changePwDiv" style="display: none;">
 							<!-- 현재 비밀번호 -->
-							<label>현재 비밀번호</label> <input type="password" class="userInput_pw"
-								autocomplete="off" id="curPw" maxlength="12">
+							<label style='color:black;'>현재 비밀번호</label> <div class="webflow-style-input"><input type="password" class="userInput_pw"
+								autocomplete="off" id="curPw" maxlength="12" style="border: none; margin-left: -10px;"></div>
+                                
 							<p class="advise" id="adviseCurPw" readonly></p>
 							<p class="hiddenResp" id="hiddenRespCurPw" style="display: none;"></p>
 							<!-- 변경 비밀번호 -->
-							<label>변경 비밀번호</label><span class="required">*</span><br> <input
+							<label>변경 비밀번호</label><span class="required">*</span><br><div class="webflow-style-input" style="min-width: 270px;"><input
 								type="password" class="userInput_pw" autocomplete="off" id="pw"
-								name="pw" maxlength="12" placeholder="비밀번호(영문 대소문자, 숫자 6~15자리)">
+								name="pw" maxlength="12" placeholder="비밀번호(영문 대소문자, 숫자 6~15자리)" style="border: none; margin-left: -10px;"></div>
 							<!-- 변경 비밀번호 확인 -->
-							<input type="password" class="userInput_pw" autocomplete="off"
-								id="confirmPw" maxlength="12" placeholder="비밀번호 재입력"><br>
+							<div class="webflow-style-input" style="min-width: 270px;"><input type="password" class="userInput_pw" autocomplete="off"
+								id="confirmPw" maxlength="12" placeholder="비밀번호 재입력" style="border: none; margin-left: -10px;"></div><br>
 							<p class="advise" id="advisePw" readonly></p>
 							<p class="hiddenResp" id="hiddenRespPw" style="display: none;"></p>
 							<br>
@@ -1460,15 +1461,15 @@ button.learn-more .button-text {
 						<div>비밀 번호</div>
 						<button type="button" id="changePw">비밀번호 변경</button>
 						<br>
-						<button type="button" id="cancelChangePw" style="display: none;">이전</button>
-						<button type="button" id="changePwComplete" style="display: none;">변경
+						<button type="button" id="cancelChangePw" style="display: none; background: white; border: 2px solid black;">이전</button>
+						<button type="button" id="changePwComplete" style="display: none; background: white; border: 2px solid black;">변경
 							완료</button>
 						<br>
 
 						<!-- 이름 -->
-						<label>이름</label><span class="required">*</span class="required"><br> <input
+						<label>이름</label><span class="required">*</span class="required"><br> <div class="webflow-style-input"><input
 							type="text" class="userInput" id="username" name="name"
-							maxlength="70">
+							maxlength="70" style="border: none; margin-left: -10px; text-align: center;"></div>
 						<p class="advise" id="adviseName" readonly></p>
 						<p class="hiddenResp" id="hiddenRespName" style="display: none;"></p>
 						<!-- 생년월일 -->
@@ -1500,22 +1501,48 @@ button.learn-more .button-text {
 						<p class="advise" id="advisePhone" readonly></p>
 						<p class="hiddenResp" id="hiddenRespPhone" style="display: none;"></p>
 						<!-- 인증번호 -->
+						<div class="webflow-style-input" style="margin-left: 50px;">
 						<input type="text" id="verifyCode" name="verifyCode"
-							placeholder="인증번호 입력" maxlength="6" style="text-align: center;">
-						<button type="button" id="sendCode">인증번호
+							placeholder="인증번호 입력" maxlength="6" style="text-align: center; border: none; margin-left: -10px;"></div>
+						<button type="button" id="sendCode" style="margin-top: -30px; float: right; margin-right: 30px; background: white; border: 2px solid black;">인증번호
 							전송</button>
 						<span id="timer" readonly></span>
-						<button type="button" id="resendCode" hidden>인증번호 재전송</button>
+						<button type="button" id="resendCode" hidden style="background: white; border: 2px solid black;">인증번호 재전송</button>
 						<br>
-						<button type="button" id="confirmVerifyCode" hidden>인증번호 확인</button>
+						<button type="button" id="confirmVerifyCode" hidden style="background: white; border: 2px solid black;">인증번호 확인</button>
 						<br>
 						<p class="advise" id="adviseVerifCode" readonly></p>
 						<p class="hiddenResp" id="hiddenRespVerifCode" hidden></p>
 					</div>
 					<div class="footer" style="text-align: center;">
-						<button type=button id="withdrawMem">회원탈퇴</button>
-						<button type=button id="changeMyInfo">수정완료</button>
-						<button type=button id="backToFeed">뒤로가기</button>
+						<button type=button class="learn-more" id="withdrawMem" style="margin-right: 5px; width: 8rem;">
+							<span class="circles" aria-hidden="true">
+                           <span class="icon arrow"></span>
+                           </span>
+                           <span class="button-text">회원탈퇴</span><br>
+						</button>
+						
+						<button type=button class="learn-more" id="changeMyInfo" style="margin-right: 5px; width: 8rem;">
+							<span class="circles" aria-hidden="true">
+                           <span class="icon arrow"></span>
+                           </span>
+                           <span class="button-text">수정완료</span><br>
+						</button>
+						<button type=button class="learn-more" id="backToFeed" style="margin-right: 5px; width: 8rem;">
+							<span class="circles" aria-hidden="true">
+                           <span class="icon arrow"></span>
+                           </span>
+                           <span class="button-text">뒤로가기</span><br>
+						</button>
+						
+						
+<!-- 						<button type="button" class="learn-more" id="cancelBtn"  style="color:#0D4373; margin-right:5%;"> -->
+<!--                            <span class="circles" aria-hidden="true"> -->
+<!--                            <span class="icon arrow"></span> -->
+<!--                            </span> -->
+<!--                            <span class="button-text">취소</span><br> -->
+<!--                         </button> -->
+                                
 					</div>
 				</form>
 			</div>
