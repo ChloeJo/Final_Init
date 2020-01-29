@@ -108,7 +108,7 @@
    background-color:white;
    padding:0px;
    color:black;
-   border: 1px solid black;
+   border: none;
 }
 #likeBtn, #bookmarkBtn{
    width:50px;
@@ -251,7 +251,6 @@
 	height: 100%;
 	width: 100%;
 	border-radius: 160px;
-	border: 1px solid black;
 }
 
 .profileButton{
@@ -773,6 +772,7 @@ button.learn-more .button-text {
 .profileButton:hover {
     background: #67c5ff;
     color: white;
+    }
 #profileImg{
 	width:250px;
 	white-space: nowrap;
@@ -780,7 +780,7 @@ button.learn-more .button-text {
 	text-overflow: ellipsis;
 }
 #adviseNickname, #adviseProfile-msg{
-	font-size: 12px;
+	font-size: 11px;
 }
 #modalProfile{
 	width: 45%;
@@ -809,15 +809,13 @@ button.learn-more .button-text {
   min-width: 200px;
   margin: auto;
   border-radius: 2px;
-        padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   background: rgba(252, 252, 252, 0.8);
 }
 .webflow-style-input:after {
   content: "";
   position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  left: 0px; right: 0px; bottom: 0px;
   z-index: 999;
   height: 2px;
   border-bottom-left-radius: 2px;
@@ -1261,7 +1259,7 @@ button.learn-more .button-text {
 
 	<!-- 친구 목록 모달 영역 -->
 	<div id="friendListModal" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel2"
-		style="margin-top:5%; margin-left:0%;">
+		style="margin-top:5%; margin-left:20%;">
 		<div class="modal-dialog" role="document" >
 			<div class="modal-content"  style="border:1px;">
 				<div class="modal-header" style="background-color:#171C28;">
@@ -1283,7 +1281,15 @@ button.learn-more .button-text {
 				</div>
 				<div class="modal-footer" >
 
-					<button type="button" class="closebtnFL" id="closefriendList" onclick="closeModal();"style="background-color:gainsboro;">확인</button>
+<!-- 					<button type="button" class="closebtnFL" id="closefriendList" onclick="closeModal();"style="background-color:gainsboro;">확인</button> -->
+					
+					<button type="button" class="closebtnFL learn-more" id="closefriendList" onclick="closeModal();"style="color:#0D4373; height:40px;">
+						<span class="circles" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">확인</span><br>
+                     </button>
+					
 
 				</div>
 			</div>
@@ -1544,14 +1550,16 @@ button.learn-more .button-text {
                                 <input type="file" id="profileImg" name="profileImg"><br> 
 <!--                                 <p class="adviseOut" id="adviseProfile" readonly>*프로필 사진 미등록시 기본이미지로 등록됩니다.</p> -->
 <!--                                 <label>닉네임 : </label> -->
+<!-- ------------------------------------------------------------------------------------- -->
 								<div class="webflow-style-input">
-                                <input type="text" id="inputNick" name="nickname" maxlength="20"></div>
+                                <input type="text" id="inputNick" name="nickname" maxlength="20" placeholder="닉네임" style="text-align:center;"></div>
                                 <label class="adviseIn" id="adviseInNickname" hidden></label><br>
-                                <p class="adviseOut" id="adviseNickname" readonly>*4~20자 영문 대 소문자, 숫자, 특수문자(_)만 사용 가능합니다.</p>
+                                <p class="adviseOut" id="adviseNickname" readonly style="font-size:12px;">*4~20자 영문 대 소문자, 숫자, 특수문자(_)</p>
 <!--                                 <label>상태 메시지 : </label> -->
-                                <div class="webflow-style-input"><input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200"></div>
+                                <div class="webflow-style-input"><input type="text" id="inputProfile_msg" name="profile_msg" maxlength="200" placeholder="상태 메시지"></div>
+<!-- ------------------------------------------------------------------------------------- -->
                                 <label class="adviseIn" id="adviseInProfile-msg" hidden></label><br>
-                                <p class="adviseOut" id="adviseProfile-msg" readonly>*200자 이내로 입력 가능합니다.</p>
+                                <p class="adviseOut" id="adviseProfile-msg" readonly style="font-size:12px;">*200자 이내로 입력 가능합니다.</p>
                             </div>
                             <div class="modal-footer">
                             <div id="cbtnContainer">
