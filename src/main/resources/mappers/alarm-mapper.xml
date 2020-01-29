@@ -4,7 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Alarm">
 
-	
 	<!-- 시퀀스로 피드 작성자 찾기 -->
 	<select id="alarmReceiver" resultType="java.lang.String">
 		select email from tb_feed where feed_seq = #{feed_seq}
@@ -83,8 +82,10 @@
 	
 	<!-- 새 알림이 있는지 -->
 	<select id="isNewAlarm" resultType="java.lang.Integer"> 
-		select count(*) from tb_alarm where email=#{email} and alarm_check='N'
-	</select>
+	    select count(*) from tb_alarm al 
+	    full outer join tb_reply re on al.applied_seq = re.reply_seq 
+	    where al.email=#{email} and alarm_check='N' and re.email not in(#{email})
+   	</select>
 	
 	<!-- 알림 삭제 -->
 	<delete id="deleteAlarm"> 

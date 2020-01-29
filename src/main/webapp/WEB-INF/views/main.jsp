@@ -251,7 +251,8 @@
 		border-radius: 5px;
 	}
 	#tab5-1_setProfile{
-		width:200px;
+		width:300px;
+		height:300px;
 		border-radius: 100%;
 	}
 	#tab5-1_deleteProfile{

@@ -180,7 +180,7 @@
 	top: 5px;
 	max-width: 935px;
 	padding: 60px 20px 0;
-	border:2px solid #67c5ff; 
+	
 }
 #carouselExampleIndicators{
    width:100%;
@@ -755,14 +755,20 @@ button.learn-more .button-text {
 }
 
 #deletePic{
-	width: 30px; height: 30px;
-    background: white;;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 300px;
     border: none;
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 13px;
+    background-color: transparent;
 }
 #deletePicImg{
 	margin-left: -2px;
 	margin-top: -3px;
-    width: 25px;
+    width: 20px;
 }
 
 .profileButton:hover {
@@ -796,17 +802,18 @@ button.learn-more .button-text {
     background-position: 100% 0;
   }
 }
-.webflow-style-input {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 50%;
-  max-width: 400px;
-  min-width: 200px;
-  margin: auto;
-  border-radius: 2px;
-  padding: 10px 10px 10px 10px;
-  background: rgba(252, 252, 252, 0.8);
+.webflow-style-input {    
+	position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    max-width: 400px;
+    min-width: 200px;
+    margin: auto;
+    border-radius: 2px;
+    padding: 10px 10px 10px 10px;
+    background-color: rgba(252, 252, 252, 0.8);
+    background: transparent;
 }
 .webflow-style-input:after {
   content: "";
@@ -1165,14 +1172,21 @@ button.learn-more .button-text {
 						<div class="profileLayoutCenter">
 							<div class="profileImageBox">
 								<img class="profileImg" src="${mvo.profile_img}" alt="">
+								
 								<button type="button" id="changeProfile">프로필 편집</button>
+								
 						</div>
 						</div>
 						<c:if test="${loginInfo.id_type eq 'E'}">
 							<div class="profileLayoutRight">
 								<button class="profileButton" id="changeInfo">정보수정</button>
 							</div>
-						</c:if>						
+						</c:if>	
+						<c:if test="${loginInfo.id_type ne 'E'}">	
+						<div class="profileLayoutRight">
+								
+							</div>	
+							</c:if>				
 					</div>
 					<div class="profileMessageLayout">
 						<div class="profileName">${mvo.nickname }</div>
@@ -1443,17 +1457,17 @@ button.learn-more .button-text {
 						<div id="changePwDiv" style="display: none;">
 							<!-- 현재 비밀번호 -->
 							<label style='color:black;'>현재 비밀번호</label> <div class="webflow-style-input"><input type="password" class="userInput_pw"
-								autocomplete="off" id="curPw" maxlength="12" style="border: none; margin-left: -10px;"></div>
+								autocomplete="off" id="curPw" maxlength="12" style="border: none;"></div>
                                 
 							<p class="advise" id="adviseCurPw" readonly></p>
 							<p class="hiddenResp" id="hiddenRespCurPw" style="display: none;"></p>
 							<!-- 변경 비밀번호 -->
 							<label>변경 비밀번호</label><span class="required">*</span><br><div class="webflow-style-input" style="min-width: 270px;"><input
 								type="password" class="userInput_pw" autocomplete="off" id="pw"
-								name="pw" maxlength="12" placeholder="비밀번호(영문 대소문자, 숫자 6~15자리)" style="border: none; margin-left: -10px;"></div>
+								name="pw" maxlength="12" placeholder="비밀번호(영문 대소문자, 숫자 6~15자리)" style="border: none;"></div>
 							<!-- 변경 비밀번호 확인 -->
 							<div class="webflow-style-input" style="min-width: 270px;"><input type="password" class="userInput_pw" autocomplete="off"
-								id="confirmPw" maxlength="12" placeholder="비밀번호 재입력" style="border: none; margin-left: -10px;"></div><br>
+								id="confirmPw" maxlength="12" placeholder="비밀번호 재입력" style="border: none;"></div><br>
 							<p class="advise" id="advisePw" readonly></p>
 							<p class="hiddenResp" id="hiddenRespPw" style="display: none;"></p>
 							<br>
@@ -1501,7 +1515,7 @@ button.learn-more .button-text {
 						<p class="advise" id="advisePhone" readonly></p>
 						<p class="hiddenResp" id="hiddenRespPhone" style="display: none;"></p>
 						<!-- 인증번호 -->
-						<div class="webflow-style-input" style="margin-left: 50px;">
+						<div class="webflow-style-input">
 						<input type="text" id="verifyCode" name="verifyCode"
 							placeholder="인증번호 입력" maxlength="6" style="text-align: center; border: none; margin-left: -10px;"></div>
 						<button type="button" id="sendCode" style="margin-top: -30px; float: right; margin-right: 30px; background: white; border: 2px solid black;">인증번호
