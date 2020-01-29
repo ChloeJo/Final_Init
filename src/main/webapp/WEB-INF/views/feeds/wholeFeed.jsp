@@ -373,7 +373,7 @@ div.cover {
    height:80px;
    border-radius: 160px;
 }
-.userProfileImg{
+.userProfileImg,.myProfileImg{
    width:40px;
    height:40px;
    border-radius: 160px;
@@ -732,7 +732,7 @@ function getList(page){
          <div class="detailView_footer">
             <div class="footer-btns" style="display:flex;width:50%;height:10%;"></div>
             <div class="writeReplyBox">               
-               <span class="myProfile"><img class="userProfileImg" src="${loginInfo.profile_img }" alt=""></span>
+               <span class="myProfile"><img class="myProfileImg" src="${loginInfo.profile_img }" alt=""></span>
                 <h5 class="modal-title" id="exampleModalLabel">${loginInfo.nickname }</h5>
                 <div id="writeReply" contenteditable="true"></div>
                 <button type="button" class="replyBtn" onclick="replyBtnOnclick('${loginInfo.email}');">등록</button>

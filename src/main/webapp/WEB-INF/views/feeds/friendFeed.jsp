@@ -33,6 +33,19 @@
 body{
 	background-color:#171C28;
 }
+.modal-title,.declareQ,.declareR,.declareN{
+   color:black;
+}
+.media{
+   width:100%;
+   height:100%;
+   margin:0px;
+   overflow:scroll;
+}
+
+.media::-webkit-scrollbar {
+        width: 0 !important
+}
 #wrapper {
    margin: auto;
    color:white;

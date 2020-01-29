@@ -198,14 +198,9 @@
 	max-width: 700px;
     margin: 30px auto 50px;
     
-    border-radius:0.5%;
-    padding:3%;
+    }
     
-    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-    
-}
+
 #myFeed{
 	color:white;
 	font-size:20px;
@@ -346,7 +341,7 @@ margin:auto;
     margin-right: 16px;
     line-height: 50px;
 }
-.writerProfileImg{
+.writerProfileImg ,.myProfileImg{
 	width:80px;
 	height:80px;
 	border-radius: 160px;
@@ -1323,7 +1318,7 @@ button.learn-more .button-text {
 	      <div class="detailView_footer">
 	      	<div class="footer-btns" style="display:flex;width:50%;height:10%;"></div>
 	      	<div class="writeReplyBox">					
-	         	<span class="myProfile"><img class="userProfileImg" src="${loginInfo.profile_img }" alt=""></span>
+	         	<span class="myProfile"><img class="myProfileImg" src="${loginInfo.profile_img }" alt=""></span>
 	       		<h5 class="myNickname">${loginInfo.nickname }</h5>
 	       		<div id="writeReply" contenteditable="true"></div>
 	       		<button type="button" class="replyBtn" onclick="replyBtnOnclick('${loginInfo.email}');">등록</button>
@@ -1838,7 +1833,7 @@ button.learn-more .button-text {
                             $('.frListBody').append("<div class=frInfo ><a href='${pageContext.request.contextPath}/feed/myFeed?email="
                                 + waitlist[j].email
                                 + "'><img class=yprofileImg src="+waitlist[j].profile_img+" style=width:3%; height:3%;border-radius:10%;> "
-                                + waitlist[j].nickname
+                                + waitlist[j].email
                                 + " </a> <button type=button class='frInfo acceptfr' name=" + waitlist[j].email + " style=border-radius:25%; background-color:gainsboro>친구 추가</button><button type=button class='frInfo cancelfr' name=" + waitlist[j].email + " style=border-radius:10%; background-color:gainsboro>취소</button><br></div>");
                         }
                     }
@@ -1850,16 +1845,17 @@ button.learn-more .button-text {
                                 "<div class=frInfo ><a href='${pageContext.request.contextPath}/feed/myFeed?email="
                                 + list[j].email
                                 + "'><img class=yprofileImg src="+list[j].profile_img+" style=width:3%; height:3%; border-radius:50%;> "
-                                + list[j].nickname
+                                + list[j].email
                                 + " </a> <button type=button class='frInfo cutfr' name=" + list[j].email + " style=border-radius:10%; background-color:gainsboro>친구 끊기</button> <button type=button class='frInfo changeRelation' name=" + list[j].email + " style=border-radius:10%; background-color:gainsboro>친구 관계 변경</button><span style=color:gainsboro;>친구관계 : "+frlist[j].relation+"</span><br></div>");
                         }
                     }
                   
                     
                     //친구 검색
-                    $('#searchFriendsList').on('keyup', function () {
+                    $('#searchFriendsList').on('keydown', function () {
                         var search = $(this).val();
                         console.log(search);
+                        $('.frInfo').remove();
                         $('.frInfo').remove();
                         $.ajax({
                             url: "${pageContext.request.contextPath}/friend/searchFndList",
@@ -1876,7 +1872,7 @@ button.learn-more .button-text {
                                         $('.frListBody').append("<div class=frInfo id=wfrNum" + j + " ><a href='${pageContext.request.contextPath}/feed/myFeed?email="
                                             + waitlist[j].email
                                             + "'><img class=yprofileImg src="+waitlist[j].profile_img+" style=width:3%; height:3%; border-radius:50%;> "
-                                            + waitlist[j].nickname
+                                            + waitlist[j].email
                                             + " </a> <button type=button class='frInfo acceptfr'   name=" + waitlist[j].email + " style=border-radius:10%; background-color:gainsboro;>친구 추가</button><button type=button class='frInfo cancelfr' name=" + waitlist[j].email + " style=border-radius:10%; background-color:gainsboro>취소</button><br></div>");
                                     }
                                 }
@@ -1888,7 +1884,7 @@ button.learn-more .button-text {
                                             "<div class=frInfo id=frNum" + j + " ><a href='${pageContext.request.contextPath}/feed/myFeed?email="
                                             + list[j].email
                                             + "'><img class=yprofileImg src="+list[j].profile_img+" style=width:3%; height:3%; border-radius:50%; > "
-                                            + list[j].nickname
+                                            + list[j].email
                                             + " </a> <button type=button class='frInfo cutfr' name=" + list[j].email + " style=border-radius:10%; background-color:gainsboro>친구 끊기</button> <button type=button class='frInfo changeRelation' name=" + list[j].email + " style=border-radius:10%; background-color:gainsboro>친구 관계 변경</button><span style=color:gainsboro;>친구관계 : "+ frlist[j].relation +"</span><br></div>");
 
                                     }

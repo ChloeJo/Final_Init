@@ -103,7 +103,7 @@
 										<td>${mdto.name}</td>
 										<td>${mdto.email}</td>
 										<td><button type="button" class="tbBtn btn-dark"
-												id="${mdto.email}">black</button></td>
+												id="${mdto.email}">block</button></td>
 									</tr>
 								</c:forEach>
 								<tr align=center id="naviTr">
