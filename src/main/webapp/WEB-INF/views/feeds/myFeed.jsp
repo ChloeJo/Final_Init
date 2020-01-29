@@ -89,10 +89,15 @@
 	min-width:460px;
     margin-bottom: 30px;
 }
-.media{	
-	width:100%;
-	height:100%;
-    margin: 0px;
+.media{
+   width:100%;
+   height:100%;
+   margin:0px;
+   overflow:scroll;
+}
+
+.media::-webkit-scrollbar {
+        width: 0 !important
 }
 .media>p{
 	padding:10px;
@@ -249,14 +254,14 @@
 }
 
 .profileButton{
-    width: 125px;
-    height: 64px;
+    width: 80px;
+    height: 30px;
     background-color: white;
-    font-size: 16px;
+    font-size: 12px;
     font-family: 'Do Hyeon', sans-serif;
     background: transparent;
-    color: #67c5ff;
-    border: solid 2px #67c5ff;
+    color: white;
+    border: solid 2px white;
     border-radius: 3px;
     transition: .4s;
 }
@@ -500,14 +505,10 @@ margin:auto;
 
 /* 메뉴바 */
 .menubar{
-
     text-align:center;
     max-width: 600px;
-
     min-width: 464px;
     margin:  auto;
-    border:2px solid #67c5ff;
-    border-radius:10%;
     
 }
 .menubar>button{

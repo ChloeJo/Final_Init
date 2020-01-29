@@ -92,11 +92,11 @@ html,body {
 }
 
 .carousel-item * {
-   width: 99.5%;
+   width: 100%;
    height:600px; 
 }
 .slide {
-   width: 99.5%;
+   width: 100%;
 }
 
 .btnss * {

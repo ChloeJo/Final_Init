@@ -522,6 +522,11 @@ div.cover {
    width:100%;
    height:100%;
    margin:0px;
+   overflow:scroll;
+}
+
+.media::-webkit-scrollbar {
+        width: 0 !important
 }
 .media>p{
 	padding:30px;
