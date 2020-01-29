@@ -115,13 +115,14 @@
  				
  				for(var i=0; i < resp.length; i++){
  					$(".sector_in").append("<div class='ppre_line'>"		// img src 안에다가 dto 꺼내듯이 쓰면 됨
- 							+"<div class='pre_pf' data-toggle='modal' data-target='#toWhereModal'><img src='"+resp[i].profile_img+"' class='pre_pf_img'></div>"
+ 							+"<div class='pre_pf'><img src='"+resp[i].profile_img+"' class='pre_pf_img'></div>"
  							+"<div class='pre_text' id='"+resp[i].fr_id+"' value='"+resp[i].nickname+"' name='"+resp[i].profile_img+"'>"+resp[i].nickname+"</div>"
  			                +"<div class='pre_time'>"
  			                +"<img src='/images/startMsg2.png' class='pre_start' id='"+resp[i].fr_id+"' value='"+resp[i].nickname+"' name='"+resp[i].profile_img+"'>"
  			                +"</div></div>");
 				}
  				
+ 					$(".pre_pf").off('click');
  			// 모달 띄우기
  				$(".pre_text").on("click", function(){
  					$('#toWhereModal').modal('show');
