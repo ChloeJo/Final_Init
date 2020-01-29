@@ -82,10 +82,10 @@
 	<aop:around method="adminLoginCheck" pointcut-ref="adminControllerMethod"/>
 	</aop:aspect>
 	</aop:config>
-	<aop:config> 
-	<aop:pointcut id="allControllerMethod" expression="execution(*kh.init.*(..)) and not execution(*kh.init.members.GuestController.*(..))" />
-	<aop:aspect id="authAsp" ref="authAdv">
-	<aop:around method="loginCheck" pointcut-ref="allControllerMethod"/>
-	</aop:aspect>
-	</aop:config>
+<!-- 	<aop:config>  -->
+<!-- 	<aop:pointcut id="allControllerMethod" expression="execution(*kh.init.*(..)) and not execution(*kh.init.members.GuestController.*(..))" /> -->
+<!-- 	<aop:aspect id="authAsp" ref="authAdv"> -->
+<!-- 	<aop:around method="loginCheck" pointcut-ref="allControllerMethod"/> -->
+<!-- 	</aop:aspect> -->
+<!-- 	</aop:config> -->
 </beans>

@@ -43,7 +43,13 @@ public class FeedController {
 		List<String> cover = new ArrayList<>();
 		List<MemberDTO> flist = new ArrayList<>();
 		int totalFeedSize =  0;
-		String myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String myEmail = null;
+		try {
+			myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			if(!(email.equalsIgnoreCase(myEmail))) {
 				System.out.println(email);
@@ -94,7 +100,13 @@ public class FeedController {
 		List<FeedDTO> list = new ArrayList<>();
 		List<Integer> rnum = new ArrayList<>();
 		List<String> cover = new ArrayList<>();
-		String myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String myEmail = null;
+		try {
+			myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 //			if((List<FeedDTO>)service.getMyFeed(ipage, email)==null) {
 //				System.out.println("list는 null입니다.");
@@ -149,7 +161,13 @@ public class FeedController {
 		List<FeedDTO> list = null;
 		List<String> cover = new ArrayList<>();
 		
-		String myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String myEmail = null;
+		try {
+			myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			if(!(email.equalsIgnoreCase(myEmail))) {
 				System.out.println(email);
@@ -215,7 +233,13 @@ public class FeedController {
 		List<Integer> rnum = new ArrayList<>();
 		List<String> cover = new ArrayList<>();
 		//로그인 세션 테스트 코드 시작
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		System.out.println("로그인 세션 값 확인 : " + email);
 		//로그인 세션 테스트 코드 끝
 		try {
@@ -245,7 +269,13 @@ public class FeedController {
 	}
 	@RequestMapping("/deleteProc")
 	public String deleteProc(int feed_seq) {
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		System.out.println("삭제 도착!");
 		try {
 			int result =  service.deleteFeed(feed_seq);
@@ -267,7 +297,13 @@ public class FeedController {
 		System.out.println("게시물 등록 도착!");		
 		dto.setEmail(((MemberDTO)session.getAttribute("loginInfo")).getEmail());
 		dto.setNickname(((MemberDTO)session.getAttribute("loginInfo")).getNickname());
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		int result = 0;
 		//mediaTmpUpload에서 임시로 mediaTmp폴더에 넣어둔 미디어들을 옮기기 위한 폴더
 		String mediaPath = session.getServletContext().getRealPath("media");
@@ -292,7 +328,13 @@ public class FeedController {
 		System.out.println("게시물 수정 시작!");
 		System.out.println(dto.getFeed_seq());
 		System.out.println(dto.getContents());
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		dto.setEmail(email);
 		try {
 			int result = service.modifyFeed(dto);
@@ -353,7 +395,13 @@ public class FeedController {
 		List<FeedDTO> list = new ArrayList<>();
 		List<MemberDTO> friendList = new ArrayList<>();
 		List<String> cover = new ArrayList<>();
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 				if(keyword==null || keyword.startsWith("#")) {//전체피드 가져오기 또는 해시태그 검색
 					System.out.println("해시태그검색");
@@ -391,7 +439,13 @@ public class FeedController {
 		List<Integer> rnum = new ArrayList<>();
 		List<MemberDTO> friendList = new ArrayList<>();
 		List<String> cover = new ArrayList<>();
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		System.out.println("rnum : "+rnum.toString());
 		Gson g = new Gson();
 		
@@ -428,7 +482,13 @@ public class FeedController {
 	@RequestMapping("/scrapFeed")
 	public String scrapFeed(Model model) {
 		System.out.println("scrapFeed 도착");
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 
 		List<String> cover = new ArrayList<>();
 		List<FeedDTO> scrapList = new ArrayList<>();
@@ -459,9 +519,16 @@ public class FeedController {
 		Gson g = new Gson();
 		List<ReplyDTO> replyList = new ArrayList<>();
 		try {
+			String email = null;
+			try {
+				email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+			}catch(Exception e) {
+				e.printStackTrace();
+				return "error";
+			}
 			dto = service.detailView(feed_seq);
-			likeCheck = service.likeCheck(feed_seq, ((MemberDTO)session.getAttribute("loginInfo")).getEmail());
-			bookmarkCheck = service.bookmarkCheck(feed_seq, ((MemberDTO)session.getAttribute("loginInfo")).getEmail());
+			likeCheck = service.likeCheck(feed_seq, email);
+			bookmarkCheck = service.bookmarkCheck(feed_seq, email);
 			list = service.getMediaList(feed_seq);
 			replyList = service.viewAllReply(feed_seq);
 			for(int i=0;i<replyList.size();i++) {
@@ -489,8 +556,13 @@ public class FeedController {
 	public String getFriendFeed(Model model, String page) {
 		int ipage = 1;
 		System.out.println("friendFeed 도착");
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
-//		String profile_img = ((MemberDTO)session.getAttribute("loginInfo")).getProfile_img();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			List<FeedDTO> tmp1 =  service.getFriendFeed(ipage, email);
 			List<FeedDTO> list = new ArrayList<>();
@@ -571,7 +643,13 @@ public class FeedController {
 		}
 		int ipage = Integer.parseInt(page);
 		System.out.println("friendFeed 도착");
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		String profile_img = ((MemberDTO)session.getAttribute("loginInfo")).getProfile_img();
 		JsonObject obj = new JsonObject();
 		try {
@@ -660,7 +738,13 @@ public class FeedController {
 	public String insertLike(String feed_seq) {
 		System.out.println("insertLike 도착");
 		System.out.println("feed_seq : "+feed_seq);
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			service.insertLike(Integer.parseInt(feed_seq), email);
 		}catch(Exception e) {
@@ -673,7 +757,13 @@ public class FeedController {
 	public String deleteLike(String feed_seq) {
 		System.out.println("deleteLike 도착");
 		System.out.println("feed_seq : "+feed_seq);
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			service.deleteLike(Integer.parseInt(feed_seq), email);
 		}catch(Exception e) {
@@ -691,7 +781,13 @@ public class FeedController {
 	public String insertBookmark(int feed_seq) {
 		System.out.println("insertBookmark 도착");
 		System.out.println("feed_seq : "+feed_seq);
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			service.insertBookmark(feed_seq, email);
 		}catch(Exception e) {
@@ -704,7 +800,13 @@ public class FeedController {
 	public String deleteBookmark(int feed_seq) {
 		System.out.println("deleteBookmark 도착");
 		System.out.println("feed_seq : "+feed_seq);
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		String email = null;
+		try {
+			email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			service.deleteBookmark(feed_seq, email);
 		}catch(Exception e) {

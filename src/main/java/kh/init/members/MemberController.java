@@ -109,8 +109,14 @@ public class MemberController {
 	@ResponseBody
 	public String goMyInfo(String email) {
 		System.out.println("개인 정보 CON 도착.");
+		MemberDTO mDto = null;
+		try {
+			mDto = (MemberDTO)session.getAttribute("loginInfo");
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		
-		MemberDTO mDto = (MemberDTO)session.getAttribute("loginInfo");
 		String emailResult =mDto.getEmail().replace("@", "%40");
 		System.out.println("고인포 : "+ emailResult);
 		try {			
@@ -178,8 +184,6 @@ public class MemberController {
 				System.out.println("회원탈퇴 실패하셨슴당.");
 				return "error";
 			}
-
-
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("입력실패.");
@@ -190,7 +194,13 @@ public class MemberController {
 	@RequestMapping("/changeMyInfo") //회원 정보 수정하기
 	public String changeInfo(MemberDTO dto, Model model) {
 		System.out.println("회원 정보 수정 CON 도착.");
-		MemberDTO mDto = (MemberDTO)session.getAttribute("loginInfo");
+		MemberDTO mDto = null;
+		try {
+			mDto = (MemberDTO)session.getAttribute("loginInfo");
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 		try {
 			int result = 0;
 			model.addAttribute("email", mDto.getEmail());
@@ -216,9 +226,9 @@ public class MemberController {
 	@RequestMapping("/changePw") // 비밀번호 변경
 	@ResponseBody
 	public String changePw(String pw) {
-		String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
 		JsonObject obj = new JsonObject();
 		try {
+			String email = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
 			if(service.changePw(email, pw) > 0) {
 				obj.addProperty("result", "complete");
 			}else {
@@ -236,8 +246,13 @@ public class MemberController {
 		System.out.println("회원 정보 수정 CON 도착.");
 		System.out.println("dto 출력 : " + dto.toString());
 		String path = session.getServletContext().getRealPath("files");
-		MemberDTO mDto = (MemberDTO)session.getAttribute("loginInfo");
-		 
+		MemberDTO mDto = null;
+		try {
+			mDto = (MemberDTO)session.getAttribute("loginInfo");
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}		 
 		model.addAttribute("email", mDto.getEmail());
 		System.out.println("이메일는 "+mDto.getEmail());
 		System.out.println("파일명은 : " + profileImg.getOriginalFilename());
@@ -292,9 +307,8 @@ public class MemberController {
 	@RequestMapping("/blockMem") // 비밀번호 변경
 	@ResponseBody
 	public String blockMem(String yr_id) {
-		String myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
-		
 		try {
+			String myEmail = ((MemberDTO)session.getAttribute("loginInfo")).getEmail();
 			String result =service.blockService(myEmail, yr_id);
 			return result;
 		} catch (Exception e) {

@@ -725,7 +725,6 @@ function getList(page){
                 <div class="reply">
                		<div class="writerInfo">
                     		<span class="writerProfile"><img class="userProfileImg" src="${writerProfile.profile_img }" alt=""></span>
-                     		<span class="writerProfileID">asdsadas</span>
                     </div>                     
                 </div>
             </div>

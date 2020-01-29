@@ -101,13 +101,13 @@
           </div>
           <!--/Grid column-->
           <!--Grid column-->
-          <div class="col-lg-6 col-md-12">
-            <p class="h5 text-center mb-4">Preview</p>
-            <div class="embed-responsive embed-responsive-16by9">
-               <img src="/resources/script/indexScript/img/detailview_main.png" style="width:100%;">
-               <img src="/resources/script/indexScript/img/myfeed_main.png" style="width:100%;">
-            </div>
-          </div>
+<!--           <div class="col-lg-6 col-md-12"> -->
+<!--             <p class="h5 text-center mb-4">Preview</p> -->
+<!--             <div class="embed-responsive embed-responsive-16by9"> -->
+<!--                <img src="/resources/script/indexScript/img/detailview_main.png" style="width:100%;"> -->
+<!--                <img src="/resources/script/indexScript/img/myfeed_main.png" style="width:100%;"> -->
+<!--             </div> -->
+<!--           </div> -->
           <!--/Grid column-->
         </div>
         <!--/Grid row-->

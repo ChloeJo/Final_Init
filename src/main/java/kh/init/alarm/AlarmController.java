@@ -35,8 +35,15 @@ public class AlarmController {
 	@ResponseBody
 	public String alarmList() {
 		System.out.println("알림 리스트 열기 성공");
-		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
-		List<AlarmVO> result = service.alarmList(sessionDTO.getEmail());
+		List<AlarmVO> result = null;
+		try {
+			MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
+			result = service.alarmList(sessionDTO.getEmail());
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+
 //		List<AlarmVO> result = service.alarmList("123@123.123");
 		// 나중엔 이메일 부분 session id로 받을 것
 		
@@ -49,9 +56,16 @@ public class AlarmController {
 	@ResponseBody
 	public String deleteAlarm(String email, int alarm_seq) {
 		System.out.println("알림 삭제 성공");
-		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
-		service.deleteAlarm(sessionDTO.getEmail(), alarm_seq);
-		List<AlarmVO> result = service.alarmList(sessionDTO.getEmail());
+		
+		List<AlarmVO> result = null;
+		try {
+			MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
+			service.deleteAlarm(sessionDTO.getEmail(), alarm_seq);
+			result = service.alarmList(sessionDTO.getEmail());			
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 //		service.deleteAlarm("123@123.123", alarm_seq);
 //		List<AlarmVO> result = service.alarmList("123@123.123");
 		// 나중엔 이메일 부분 session id로 받을 것
@@ -65,8 +79,13 @@ public class AlarmController {
 	@ResponseBody
 	public String alarmCheck() {
 		System.out.println("알림 check 확인");
-		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
-		service.alarmCheck(sessionDTO.getEmail());
+		try {
+			MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
+			service.alarmCheck(sessionDTO.getEmail());		
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 //		service.alarmCheck("123@123.123");
 		// 나중엔 이메일 부분 session id로 받을 것
 		
@@ -77,8 +96,16 @@ public class AlarmController {
 	@RequestMapping(value="/isNewAlarm.al", produces="text/html; charset=utf8")
 	@ResponseBody
 	public String checkNewAlarm(String email) {
-		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
-		String result = Integer.toString(service.isNewAlarm(sessionDTO.getEmail()));
+		
+		String result = null;
+		try {
+			MemberDTO sessionDTO = (MemberDTO)session.getAttribute("loginInfo");
+			result = Integer.toString(service.isNewAlarm(sessionDTO.getEmail()));	
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
+		
 //		String result = Integer.toString(service.isNewAlarm("123@123.123"));
 		// 나중엔 이메일 부분 session id로 받을 것
 		return result;
