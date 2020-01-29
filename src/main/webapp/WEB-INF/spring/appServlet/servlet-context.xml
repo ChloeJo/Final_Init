@@ -75,19 +75,17 @@
 	</bean>
 
 	<bean id="authAdv" class="kh.init.advisors.AuthAdvisor" />
-	<!-- <aop:config> -->
-	<!-- <aop:pointcut id="allControllerMethod" expression="execution(*kh.init.*(..)) -->
-	<!-- and not execution(*kh.init.members.GuestController.*(..))"/> -->
-	<!-- <aop:aspect id="authAsp" ref="authAdv"> -->
-	<!-- <aop:around method="loginCheck" pointcut-ref="allControllerMethod"/> -->
-	<!-- </aop:aspect> -->
-	<!-- </aop:config> -->
 	<bean id="adminAuthAdv" class="kh.init.advisors.AuthAdvisor" />
  	<aop:config> 
 	<aop:pointcut id="adminControllerMethod" expression="execution(* kh.init.admin.AdminController.*(..))" />
 	<aop:aspect id="adminAuthAsp" ref="authAdv">
 	<aop:around method="adminLoginCheck" pointcut-ref="adminControllerMethod"/>
 	</aop:aspect>
-	</aop:config> 
-
+	</aop:config>
+<!-- 	<aop:config>  -->
+<!-- 	<aop:pointcut id="allControllerMethod" expression="execution(*kh.init.*(..)) and not execution(*kh.init.members.GuestController.*(..))" /> -->
+<!-- 	<aop:aspect id="authAsp" ref="authAdv"> -->
+<!-- 	<aop:around method="loginCheck" pointcut-ref="allControllerMethod"/> -->
+<!-- 	</aop:aspect> -->
+<!-- 	</aop:config> -->
 </beans>

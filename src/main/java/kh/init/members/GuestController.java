@@ -139,9 +139,9 @@ public class GuestController {
 	@RequestMapping(value="/sendVerifCode.do", produces="text/html;charset=UTF-8")
 	@ResponseBody
 	public String toSendVerifCode(String phone) {
-				String ranNum = service.sendVerifCode(phone); //인증번호 생성
-				session.setAttribute("verifyCode", ranNum);
-				System.out.println("인증번호 생성 : " + ranNum);
+		String ranNum = service.sendVerifCode(phone); //인증번호 생성
+		session.setAttribute("verifyCode", ranNum);
+		System.out.println("인증번호 생성 : " + ranNum);
 		JsonObject obj = new JsonObject();
 		obj.addProperty("result", "Verify Code sent");
 		return obj.toString();
@@ -153,8 +153,14 @@ public class GuestController {
 	public String toVerifyUser(String verifyCode) {
 
 		JsonObject obj = new JsonObject();
+		String originCode = null;
+		try {
+			originCode = (String)session.getAttribute("verifyCode");
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "error";
+		}
 
-		String originCode = (String)session.getAttribute("verifyCode");
 		if(service.verifyUser(verifyCode, originCode)) {
 			obj.addProperty("result", "verified");
 		}else {
