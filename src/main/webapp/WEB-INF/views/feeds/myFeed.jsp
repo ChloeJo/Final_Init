@@ -108,7 +108,7 @@
    background-color:white;
    padding:0px;
    color:black;
-   border: 1px solid black;
+   border: none;
 }
 #likeBtn, #bookmarkBtn{
    width:50px;
@@ -251,7 +251,6 @@
 	height: 100%;
 	width: 100%;
 	border-radius: 160px;
-	border: 1px solid black;
 }
 
 .profileButton{
