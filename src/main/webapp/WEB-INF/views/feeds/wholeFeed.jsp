@@ -344,7 +344,7 @@ div.cover {
 }
 .modal-main{
     display: flex;
-    height: 650px;
+    height: 600px;
     border: 1px solid #ebebeb;
       width:99.99%;
 }

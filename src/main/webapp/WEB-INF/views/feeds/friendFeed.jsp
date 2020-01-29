@@ -226,7 +226,7 @@ html,body {
     width: 65px;
     border-radius: 11px;
     margin: 12px;
-    color: #999;
+    color: white;
 }
 .replyBtns{	
     margin: 10px 20px;
@@ -247,7 +247,7 @@ html,body {
     background: transparent;
     font-size: 16px;
     border-radius: 11px;
-    color: #999;
+    color: white;
 }
 .contentsBox{
 	width:100%;

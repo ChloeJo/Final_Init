@@ -69,7 +69,9 @@ $('#exampleModal').on('shown.bs.modal', function (event) {
 			var mediaRow = $("<div class='row media'>"+mediaList[0]+"</div>");
 		}else{
 			var mediaRow = $("<div class='media' style='height:100%;width:100%;size:20px;text-align:center;vertical-align:center'></div>");
-			mediaRow.append(dto.contents);
+
+			var writeContents = dto.contents.replace(/(<div>|<\/div>|<br>|<p>|<\/p>)/g, '\r\n');
+			mediaRow.append(writeContents);
 		}
 		$(".modal-body5").html(mediaRow);
 		
@@ -205,7 +207,7 @@ $('#exampleModal').on('shown.bs.modal', function (event) {
 			var feed_seq = $("#exampleModal").attr("feed_seq");
 	   		var writeReply = $("#writeReply");
 			var contentsHtml = $("#writeReply").html();
-			var contents = contentsHtml.replace(/(<div>|<\/div>|<br>)/g, '\r\n');
+			var contents = contentsHtml.replace(/(<div>|<\/div>|<br>|<p>|<\/p>)/g, '\r\n');
 			if(contents == ""){ //컨텐츠가 null 값일 경우 등록 동작
 				return false;
 			}

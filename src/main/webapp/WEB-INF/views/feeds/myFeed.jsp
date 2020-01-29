@@ -254,8 +254,8 @@
 }
 
 .profileButton{
-    width: 80px;
-    height: 30px;
+    width: 120px;
+    height: 45px;
     background-color: white;
     font-size: 12px;
     font-family: 'Do Hyeon', sans-serif;
@@ -319,7 +319,7 @@
 }
 .modal-main{
     display: flex;
-    height: 650px;
+    height: 600px;
     border-top: 1px solid #ebebeb;
    	width:99.99%;
 }
@@ -505,25 +505,18 @@ margin:auto;
 
 /* 메뉴바 */
 .menubar{
-    text-align:center;
+    text-align: center;
     max-width: 600px;
     min-width: 464px;
-    margin:  auto;
-    
+    margin: auto;
+    border-top: 2px solid white;
+    padding: 20px 0px;    
 }
 .menubar>button{
-    width: 32.7%;
-    height: 38px;
     font-size: 20px;
     background: transparent;
-    color: #67c5ff;
-    border: solid 2px #67c5ff;
-    border-radius: 5px;
-    transition: .4s;
-}
-.menubar>button:hover{
-    background: #67c5ff;
     color: white;
+    border: none;
 }
 
 /* 버튼호버 */
@@ -612,8 +605,8 @@ margin:auto;
 @media all and (max-width:768px) {
 	/*     사용자 해상도가 768px 이하일 때 이 코드가 실행됨. 테블릿과 데스크톱의 공통 코드를 작성한다. */
 	.profileButton {
-   		width: 65px;
-    	height: 30px;
+   		width: 80px;
+    	height: 45px;
    		font-size: 11px;
 	}
 /* 	.row{ */
@@ -1172,7 +1165,6 @@ button.learn-more .button-text {
 						<div class="profileLayoutCenter">
 							<div class="profileImageBox">
 								<img class="profileImg" src="${mvo.profile_img}" alt="">
-								
 								<button type="button" id="changeProfile">프로필 편집</button>
 								
 						</div>
@@ -1207,9 +1199,9 @@ button.learn-more .button-text {
 				<br>
 				</div>
 				<div class="menubar">
-		<button type="button" class="profileButton" id="personalFeed" style="width:30%; height:100%;">Personal feed</button>
-		<button type="button" class="profileButton" id="registerFeed" style="width:30%; height:100%;">게시물 추가</button>
-		<button type="button" class="profileButton" id="scrapFeed" style="width:30%; height:100%;">scrap feed</button>			
+		<button type="button"  id="personalFeed" style="width:30%; height:100%;">Personal feed</button>
+		<button type="button"  id="registerFeed" style="width:30%; height:100%;">게시물 추가</button>
+		<button type="button"  id="scrapFeed" style="width:30%; height:100%;">scrap feed</button>			
 		</div>
 				</c:otherwise>
 
